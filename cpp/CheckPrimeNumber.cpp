@@ -42,4 +42,5 @@ int main()
     PrintPrimeNumberFrom1ToN(ReadPositiveNumber("Please enter a positive number : "));
 
     return 0;
+
 }
