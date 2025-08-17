@@ -1,0 +1,45 @@
+//Read Positive Number :
+
+int ReadPositiveNumber(string Message)
+{
+	int Number = 0;
+	do {
+		cout << Message << endl;
+		cin >> Number;
+	} while (Number <= 0);
+
+	return Number;
+}
+
+##################################################################
+
+
+//Check Prime Number:
+
+enum enPrimeNotPrime {Prime = 1 , NotPrime = 2};
+enPrimeNotPrime CheckPrime(int Number)
+{
+	int M = round(Number / 2);
+
+	for (int i = 2; i <= M; i++)
+	{
+		if (Number % i == 0)
+			return enPrimeNotPrime::NotPrime;
+	}
+	return enPrimeNotPrime::Prime;
+}
+
+##################################################################
+
+//Is Perfect Number:
+
+bool isPerfectNumber(int Number)
+{
+	int Sum = 0;
+	for (int i = 1; i < Number; i++)
+	{
+		if (Number % i == 0)
+			Sum += i;
+	}
+	return Number == Sum;
+}
