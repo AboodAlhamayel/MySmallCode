@@ -1,0 +1,75 @@
+//Library File :
+
+#pragma once
+
+#include<iostream>
+using namespace std;
+
+namespace MyLib
+{
+	void Test()
+	{
+		cout << "This is my first app with my first Lib !!" << endl;
+	}
+
+	//##########################################################################
+
+	int ReadPositiveNumber(string Message)
+	{
+		int Number = 0;
+		do {
+			cout << Message << endl;
+			cin >> Number;
+		} while (Number <= 0);
+
+		return Number;
+	}
+
+	//##########################################################################
+
+	int Sum2Numbers(int Num1, int Num2)
+	{
+		return Num1 + Num2;
+	}
+
+	//##########################################################################
+}
+
+//Code File :
+
+#include<iostream>
+#include "MyLib.h"
+using namespace std;
+
+int main()
+{
+	cout << MyLib::ReadPositiveNumber("Please enter the positive number : ") << endl;
+	MyLib::Test();
+	int Number = MyLib::Sum2Numbers(1, 2);
+	cout << "Sum 2 Numbers : " << Number << endl;
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
