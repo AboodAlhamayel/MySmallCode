@@ -1,0 +1,65 @@
+#include<iostream>
+#include "MyLib.h"
+using namespace std;
+
+int main()
+{
+	int Mark = 44;
+	string Result;
+
+	if (Mark >= 50)
+	{
+		Result = "Pass";
+	}
+	else
+	{
+		Result = "Fail";
+	}
+	cout << Result << endl;
+
+	//You Can Solve This Using Short Hand If :
+	Result = (Mark >= 50) ? "Pass" : "Fail";
+	cout << Result << endl;
+  // or : (Mark >= 50) ? cout << "Pass" : cout << "Fail";
+
+  //You Can Make Nested Short Hand If :
+	(Mark >= 50) ? cout << "Pass" : (Mark >= 60) ? cout << "No" : cout << "Yes";
+
+	return 0;
+}
+
+//###################################################################
+//Check if the number is Positive or Negative :
+
+#include<iostream>
+#include "MyLib.h"
+using namespace std;
+
+int main()
+{
+	int Number = 0;
+	cout << "Please enter the number : ";
+	cin >> Number;
+	(Number > 0) ? cout << "Positive" : cout << "Negative";
+	cout << endl;
+
+	return 0;
+}
+//###################################################################
+//Check if the number is Zero or Positive or Negative :
+
+#include<iostream>
+#include "MyLib.h"
+using namespace std;
+
+int main()
+{
+	int Number = 0;
+	cout << "Please enter the number : ";
+	cin >> Number;
+	(Number == 0) ? cout << "Zero" : (Number > 0) ? cout << "Positive" : cout << "Negative";
+	cout << endl;
+
+	return 0;
+}
+
