@@ -1,0 +1,22 @@
+#include<iostream>
+#include "MyLib.h"
+using namespace std;
+
+int main()
+{
+	int Array1[] = { 1,2,3,4 };
+	for (int n : Array1)
+	{
+		cout << n << endl;
+	}
+
+	//You Can Write Code With Another Way :
+
+	cout << endl;
+	for (int n : {1, 2, 3, 4})
+	{
+		cout << n << endl;
+	}
+
+	return 0;
+}
