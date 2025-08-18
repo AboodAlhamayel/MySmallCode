@@ -1,0 +1,5 @@
+F11	-> Step Into	Executes the current line and enters inside any function call.
+F5 ->	Continue	Runs the program until the next breakpoint or the end of the program.
+Shift + F9 ->	Quick Watch	Opens the Quick Watch window to inspect a variable or expression.
+F10	-> Step Over	Executes the current line, but if there’s a function, it runs it without stepping inside.
+Shift + F11	-> Step Out	If you are inside a function, it finishes the function and returns to the caller.
