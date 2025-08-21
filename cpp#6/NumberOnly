@@ -1,0 +1,27 @@
+//in Library :
+	int ReadNumberOnly()
+	{
+		int Number;
+		cout << "Please Enter A Number : " << endl;
+		cin >> Number;
+
+		while (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << "Invalid number , Enter a valid one : " << endl;
+
+			cin >> Number;
+		}
+		return Number;
+	}
+
+//Main:
+#include<iostream>
+#include "MyLib.h"
+using namespace std;
+
+int main()
+{
+	cout << "Your Number Is : " << MyLib::ReadNumberOnly() << endl;
+}
