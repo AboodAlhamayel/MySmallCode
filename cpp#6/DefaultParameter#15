@@ -1,0 +1,34 @@
+//My Lib:
+
+	int MyDiv(int a, int b, int c = 1, int d = 1)
+	{
+		return (a * b * c * d);
+	}
+
+
+
+//Code :
+
+#include<iostream>
+#include "MyLib.h"
+using namespace std;
+
+int MySum(int a, int b, int c = 0, int d = 0)
+{
+	return (a + b + c + d);
+}
+
+int main()
+{
+	cout << MySum(10, 20) << endl;
+	cout << MySum(10, 20, 30) << endl;
+	cout << MySum(10, 20, 30, 40) << endl;
+
+	cout << endl;
+
+	cout << MyLib::MyDiv(2, 3) << endl;
+	cout << MyLib::MyDiv(2, 3, 4) << endl;
+	cout << MyLib::MyDiv(2, 3, 4, 5) << endl;
+
+	return 0;
+}
