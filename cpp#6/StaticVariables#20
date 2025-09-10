@@ -1,0 +1,22 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+using namespace std;
+
+void MyFunc()
+{
+    static int Number = 1;
+    cout << "Value of number : " << Number << endl;
+
+    Number++;
+}
+
+int main()
+{
+    MyFunc();
+    MyFunc();
+    MyFunc();
+
+    return 0;
+}
