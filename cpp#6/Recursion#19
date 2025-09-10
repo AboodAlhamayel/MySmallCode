@@ -1,0 +1,74 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+using namespace std;
+
+void PrintNumbers(int N, int M)
+{
+    if (N <= M)
+    {
+        cout << N << endl;
+        PrintNumbers(N + 1, M);
+    }
+}
+
+int main() 
+{
+
+    PrintNumbers(1,4);
+
+    return 0;
+}
+
+#################################################################
+#################################################################
+#################################################################
+//HomeWork 1 : program to print numbers from M down to N
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+using namespace std;
+
+void PrintNumbers(int M, int N)
+{
+    if (M >= N)
+    {
+        cout << M << endl;
+        PrintNumbers(M - 1, N);
+    }
+}
+
+int main() {
+
+    PrintNumbers(10,1);
+
+    return 0;
+}
+#################################################################
+#################################################################
+#################################################################
+//HomeWork 2 : program to calculate power N^M
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+using namespace std;
+
+int MyPower(int Base, int Power)
+{
+    if (Power == 0)
+        return 1;
+    else
+        return (Base * MyPower(Base , Power - 1));
+}
+
+int main()
+{
+    cout << MyPower(2, 4) << endl;
+
+    return 0;
+}
