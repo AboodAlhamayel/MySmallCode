@@ -1,0 +1,18 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+using namespace std;
+
+int main()
+{
+    auto x = 10; //Type Integer
+    auto y = 12.2; // Type Double
+    auto z = "Abood"; //Type String
+
+    cout << x << endl;
+    cout << y << endl;
+    cout << z << endl;
+
+    return 0;
+}
