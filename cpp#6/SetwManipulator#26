@@ -3,7 +3,7 @@
 #include "MyLib.h"
 #include "SumLib.h"
 #include<cstdio>
-#include<iomanip>
+#include<iomanip> // lib for setw()
 using namespace std;
 
 int main()
