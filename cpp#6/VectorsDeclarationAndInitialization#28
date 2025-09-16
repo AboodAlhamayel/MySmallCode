@@ -1,0 +1,28 @@
+// vector -> Dynamic array
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    // std::vector <T> vector_name
+
+    vector <int> vNumbers = { 10,20,30,40,50 };
+    
+    cout << "Numbers Vector = ";
+    
+    //ranged loop:
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << "  ";
+    }
+    
+    cout << endl;
+
+    return 0;
+}
