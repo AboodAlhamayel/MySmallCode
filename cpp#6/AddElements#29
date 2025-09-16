@@ -1,0 +1,80 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(20);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+    vNumbers.push_back(60);
+    vNumbers.push_back(70);
+
+    cout << "Numbers Vector : \n\n";
+
+    //ranged loop:
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+HomeWork 1 : My Answer :
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+void ReadNumbers(vector <int> &vNumbers)
+{
+    char Answer = 'y';
+    int Number;
+    while (Answer == 'y' || Answer == 'Y')
+    {
+        cout << "Please enter a number : " << endl;
+        cin >> Number;
+
+        vNumbers.push_back(Number);
+        cout << "\nDo you want to add more numbers ? Y/N ";
+        cin >> Answer;
+    }
+}
+
+void PrintVectorNumbers(vector <int> &vNumbers)
+{
+    cout << "\nNumbers Vectors : \n";
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector <int> vNumbers;
+    ReadNumbers(vNumbers);
+    PrintVectorNumbers(vNumbers);
+
+    return 0;
+}
