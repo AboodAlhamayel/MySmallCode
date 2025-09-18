@@ -1,0 +1,223 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(20);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+
+    //here no thing will printed , because we have 5 push & 5 pop !
+
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(20);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+
+    if (!vNumbers.empty())
+        vNumbers.pop_back();
+
+    //here if pop back > 0 will execute the process !
+
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(20);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+
+    if (vNumbers.size() > 0)
+        vNumbers.pop_back();
+
+    //here if Size > 0 will execute the process !
+
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(20);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+
+    cout << "Stack Size = " << vNumbers.size() << endl;
+
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+
+    //here will print the size of stack (in vNumbers) !
+
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(20);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+    vNumbers.pop_back();
+
+    cout << "Stack Size after pop = " << vNumbers.size() << endl;
+
+    //here will print the size of stack after pop (in vNumbers) !
+
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> vNumbers;
+
+    vNumbers.push_back(10);
+    vNumbers.push_back(20);
+    vNumbers.push_back(30);
+    vNumbers.push_back(40);
+    vNumbers.push_back(50);
+
+    vNumbers.clear();
+
+    //here will clear all stack !
+
+    for (int& Numbers : vNumbers)
+    {
+        cout << Numbers << endl;
+    }
+
+    return 0;
+}
+
+
