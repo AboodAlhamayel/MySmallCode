@@ -1,0 +1,251 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+struct stEmployee
+{
+    string FirstName;
+    string LastName;
+    float Salary;
+};
+
+int main()
+{
+    vector <stEmployee> vEmployees;
+
+    stEmployee tempEmployee;
+
+    tempEmployee.FirstName = "Mohammed";
+    tempEmployee.LastName = "Abu-Hadhoud";
+    tempEmployee.Salary = 5000;
+    vEmployees.push_back(tempEmployee);
+
+    tempEmployee.FirstName = "Ali";
+    tempEmployee.LastName = "Maher";
+    tempEmployee.Salary = 300;
+    vEmployees.push_back(tempEmployee);
+
+    tempEmployee.FirstName = "Abood";
+    tempEmployee.LastName = "Alhamayel";
+    tempEmployee.Salary = 50000;
+    vEmployees.push_back(tempEmployee);
+
+    cout << "Employees Vector : \n\n";
+
+    for (stEmployee& Employee : vEmployees)
+    {
+        cout << "First Name : " << Employee.FirstName << endl;
+        cout << "Last Name : " << Employee.LastName << endl;
+        cout << "Salary : " << Employee.Salary << endl;
+        cout << endl;
+    }
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+HomeWork 1: (My sol : ) :
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+struct stEmployee
+{
+    string FirstName;
+    string LastName;
+    float Salary;
+};
+
+void ReadEmployees(vector <stEmployee>& vEmployee, stEmployee& tempEmployee)
+{
+    char ReadMore = 'Y';
+    int EmpNumber = 0;
+
+    while (ReadMore == 'Y' || ReadMore == 'y')
+    {
+        cout << "Please enter a number of employees : ";
+        cin >> EmpNumber;
+
+        for (int i = 0; i < EmpNumber; i++)
+        {
+            cout << "Please enter a first name : ";
+            cin >> tempEmployee.FirstName;
+            cout << "Please enter a last name : ";
+            cin >> tempEmployee.LastName;
+            cout << "Please enter a salary : ";
+            cin >> tempEmployee.Salary;
+            vEmployee.push_back(tempEmployee);
+            cout << "\n\n";
+        }
+        cout << "\n\nDo you want more employees ? Y/N :";
+        cin >> ReadMore;
+    }
+}
+
+void PrintEmployees(vector <stEmployee>& vEmployee, stEmployee& tempEmployee)
+{
+    cout << "\n\nEmployees Vector : " << endl;
+
+    for (stEmployee& Employee : vEmployee)
+    {
+        cout << "First Name : " << tempEmployee.FirstName << endl;
+        cout << "Last Name : " << tempEmployee.LastName << endl;
+        cout << "Salary : " << tempEmployee.Salary << endl;
+        cout << endl;
+    }
+}
+
+int main()
+{
+    vector <stEmployee> vEmployee;
+    stEmployee tempEmployee;
+
+    ReadEmployees(vEmployee, tempEmployee);
+    PrintEmployees(vEmployee, tempEmployee);
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+//Second Sol : (without number of employee ) :
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+struct stEmployee
+{
+    string FirstName;
+    string LastName;
+    float Salary;
+};
+
+void ReadEmployees(vector <stEmployee>& vEmployee, stEmployee& tempEmployee)
+{
+    char ReadMore = 'Y';
+
+    while (ReadMore == 'Y' || ReadMore == 'y')
+    {
+            cout << "Please enter a first name : ";
+            cin >> tempEmployee.FirstName;
+            cout << "Please enter a last name : ";
+            cin >> tempEmployee.LastName;
+            cout << "Please enter a salary : ";
+            cin >> tempEmployee.Salary;
+            vEmployee.push_back(tempEmployee);
+            cout << "\n\n";
+        cout << "\n\nDo you want more employees ? Y/N :";
+        cin >> ReadMore;
+    }
+}
+
+void PrintEmployees(vector <stEmployee>& vEmployee, stEmployee& tempEmployee)
+{
+    cout << "\n\nEmployees Vector : " << endl;
+
+    for (stEmployee& Employee : vEmployee)
+    {
+        cout << "First Name : " << tempEmployee.FirstName << endl;
+        cout << "Last Name : " << tempEmployee.LastName << endl;
+        cout << "Salary : " << tempEmployee.Salary << endl;
+        cout << endl;
+    }
+}
+
+int main()
+{
+    vector <stEmployee> vEmployee;
+    stEmployee tempEmployee;
+
+    ReadEmployees(vEmployee, tempEmployee);
+    PrintEmployees(vEmployee, tempEmployee);
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+//Dr.Sol :
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+struct stEmployee
+{
+    string FirstName;
+    string LastName;
+    float Salary;
+};
+
+void ReadEmployees(vector <stEmployee>& vEmployee)
+{
+    char ReadMore = 'Y';
+    stEmployee tempEmployee;
+
+    while (ReadMore == 'Y' || ReadMore == 'y')
+    {
+            cout << "Please enter a first name : ";
+            cin >> tempEmployee.FirstName;
+            cout << "Please enter a last name : ";
+            cin >> tempEmployee.LastName;
+            cout << "Please enter a salary : ";
+            cin >> tempEmployee.Salary;
+            vEmployee.push_back(tempEmployee);
+
+        cout << "\nDo you want more employees ? Y/N :";
+        cin >> ReadMore;
+    }
+}
+
+void PrintEmployees(vector <stEmployee>& vEmployee)
+{
+    cout << "\n\nEmployees Vector : " << endl;
+
+    for (stEmployee& Employee : vEmployee)
+    {
+        cout << "First Name : " << Employee.FirstName << endl;
+        cout << "Last Name : " << Employee.LastName << endl;
+        cout << "Salary : " << Employee.Salary << endl;
+        cout << endl;
+    }
+}
+
+int main()
+{
+    vector <stEmployee> vEmployee;
+
+    ReadEmployees(vEmployee);
+    PrintEmployees(vEmployee);
+
+    return 0;
+}
+
+
+
+
