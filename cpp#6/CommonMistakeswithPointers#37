@@ -1,0 +1,30 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    int x, * p;
+
+    /*
+    Wrong :
+    p = x;
+    */
+
+    // Correct :
+    p = &x;
+
+    /*
+    Wrong:
+    *p = &x;
+    */
+
+    // Correct :
+    *p = x;
+
+    return 0;
+}
