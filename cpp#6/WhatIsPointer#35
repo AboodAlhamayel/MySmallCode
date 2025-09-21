@@ -1,0 +1,24 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    int a = 10;
+    int b = 20;
+
+    cout << "a value :   \t" << a << endl;
+    cout << "a address : \t" << &a << endl;
+
+    int* p = &a;
+    cout << "Pointer Value :     \t" << p << endl;
+
+    p = &b;
+    cout << "New Pointer Value : \t" << p << endl;
+
+    return 0;
+}
