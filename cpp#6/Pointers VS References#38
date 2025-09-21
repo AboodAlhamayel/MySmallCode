@@ -1,0 +1,47 @@
+// Reference :
+// Its not pointer , but its a second name of variable
+// It cannot be used to refer to another variable ( Only for one variable )
+
+// Pointer :
+// A variable that stores the address of another variable
+// It can be used to refer to another variable
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    int a = 10;
+    int& x = a;
+
+    cout << "the &a : " << &a << endl;
+    cout << "the &x : " << &x << endl;
+
+    cout << "a value : " << a << endl;
+    cout << "x value : " << x << endl;
+
+    int* p = &a;
+
+    cout << "Pointer value : " << *p << endl;
+    cout << "Pointer address : " << p << endl;
+
+    int b = 20;
+    p = &b;
+
+    cout << "b value : " << b << endl;
+    cout << "b address : " << &b << endl;
+
+    cout << "Pointer value : " << *p << endl;
+    cout << "Pointer address : " << p << endl;
+
+    return 0;
+}
