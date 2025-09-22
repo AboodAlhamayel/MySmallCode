@@ -1,0 +1,29 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    int arr[4] = { 10,20,30,40 };
+    int* ptr;
+    ptr = arr;
+
+    cout << "Address are : \n";
+
+    cout << "address of 10 : " << ptr << endl;
+    cout << "address of 20 : " << ptr + 1 << endl;
+    cout << "address of 30 : " << ptr + 2 << endl;
+    cout << "address of 40 : " << ptr + 3 << endl;
+
+    cout << "\nValues are : \n";
+    cout << "first value  : " << *(ptr) << endl;
+    cout << "second value : " << *(ptr + 1) << endl;
+    cout << "third value  : " << *(ptr + 2) << endl;
+    cout << "forth value  : " << *(ptr + 3) << endl;
+
+    return 0;
+}
