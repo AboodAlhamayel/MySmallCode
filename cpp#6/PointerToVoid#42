@@ -1,0 +1,26 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    void* ptr;
+    int x = 50;
+    float f1 = 10.7;
+
+    ptr = &f1;
+    cout << "Address f1 : " << ptr << endl;
+    cout << "Value f1 : " << *(static_cast<float*>(ptr)) << endl;
+
+    cout << "\n";
+
+    ptr = &x;
+    cout << "Address x : " << ptr << endl;
+    cout << "Value x : " << *(static_cast<int*>(ptr)) << endl;
+
+    return 0;
+}
