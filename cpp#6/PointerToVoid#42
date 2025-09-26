@@ -24,3 +24,5 @@ int main()
 
     return 0;
 }
+
+//note : way to cast pointers: static_cast <typename*> (ptrName);
