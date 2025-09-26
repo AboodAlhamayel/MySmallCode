@@ -1,0 +1,6 @@
+RAM : (Memory) :
+
+1- source code / insturctions
+2- static / global
+3- stack : local variables / functions / pointers
+4- heap : any dynamic variables / objects / arrays ... etc
