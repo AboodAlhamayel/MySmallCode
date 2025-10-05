@@ -1,0 +1,21 @@
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<fstream> //Use this library.(file stream)
+using namespace std;
+
+int main()
+{   
+    fstream MyFile;
+    MyFile.open("MyFile.txt", ios::out);//Write Mode.
+
+    if (MyFile.is_open())
+    {
+        MyFile << "This is the first line\n";
+        MyFile << "This is the second line\n";
+        MyFile << "This is the third line\n";
+    }
+
+    //In write mode, everything inside the file is deleted and the newly added content is written.
+    return 0;
+}
