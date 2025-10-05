@@ -1,0 +1,25 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector <int> num { 1,2,3,4,5 };
+
+    try
+    {
+        cout << num.at(5);
+    }
+    catch(...)
+    {
+        cout << "out of bound\n";
+    }
+
+    return 0;
+}
+
+//We only use it in extreme necessity because it makes the program run slowly.
