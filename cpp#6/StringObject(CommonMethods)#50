@@ -1,0 +1,55 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string S1 = "My name is Abood Alhamayel , I love programming.";
+
+    //Print the length of the string
+    cout << S1.length() << endl;
+
+    //Return the letter at position 3
+    cout << S1.at(3) << endl;
+
+    //Adds @programming to the end of string
+    S1.append(" @Programming");
+    cout << S1 << endl;
+
+    //insert Ali at position 7
+    S1.insert(7, " Ali");
+    cout << S1 << endl;
+
+    //print all the next 5 letter form position 15
+    cout << S1.substr(15, 5) << endl;
+
+    //adds one character to the end of string
+    S1.push_back('X');
+    cout << S1 << endl;
+
+    //remove one character to the end of string
+    S1.pop_back();
+    cout << S1 << endl;
+
+    //find Ali in the string
+    cout << S1.find("Ali") << endl;
+
+    //find ali in the string
+    cout << S1.find("ali") << endl;
+
+    if (S1.find("ali") == S1.npos)
+    {
+        cout << "ali is not found.";
+    }
+
+    //clear all string letters
+    S1.clear();
+    cout << S1 << endl;
+
+    return 0;
+}
