@@ -1,0 +1,36 @@
+#include<iostream>
+#include<iomanip>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<cstdio>
+#include<vector>
+#include<string>
+#include<cctype> //Use this library.
+using namespace std;
+
+int main()
+{
+    char x;
+    char w;
+
+    x = toupper('a');
+    w = tolower('A');
+
+    cout << "converting a to A : " << x << endl;
+    cout << "converting A to a : " << w << endl;
+
+    //return zero if not , and non zero of yes .
+    cout << "isupper('A') ? " << isupper('A') << endl;
+
+    //return zero if not , and non zero of yes .
+    cout << "islower('a') ? " << islower('a') << endl;
+
+    //return zero if not , and non zero of yes .
+    cout << "isdigit('9') ? " << isdigit('9') << endl;
+
+    //return zero if not , and non zero of yes .
+    cout << "ispunct(';') ? " << ispunct(';') << endl;
+
+    //note : punctuation characters are !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+    return 0;
+}
