@@ -14,6 +14,8 @@ int main()
         MyFile << "This is the first line\n";
         MyFile << "This is the second line\n";
         MyFile << "This is the third line\n";
+
+        MyFile.close();
     }
 
     //In write mode, everything inside the file is deleted and the newly added content is written.
