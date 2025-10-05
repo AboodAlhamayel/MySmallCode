@@ -1,0 +1,30 @@
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<ctime> //Use this library.
+
+//you shoud use this too
+#pragma warning(disable : 4996)
+using namespace std;
+
+int main()
+{
+    time_t LocalTime = time(0); // get time now
+    tm* now = localtime(&LocalTime);
+
+    cout << "Year   : " << now->tm_year + 1900 << endl; // tm_year return current year
+    cout << "Month  : " << now->tm_mon + 1 << endl; // return current month
+    cout << "Day    : " << now->tm_mday << endl; // return current day
+    cout << "Hour   : " << now->tm_hour << endl; // return current hour
+    cout << "Min    : " << now->tm_min << endl; // return current minute
+    cout << "Second : " << now->tm_sec << endl; // return current second
+
+    cout << endl;
+
+    cout << "Week Day (Days since sunday) : " << now->tm_wday << endl;
+    cout << "Year Day (Days since Jan 1st): " << now->tm_yday << endl;
+    cout << "Hours of daylight saving time: " << now->tm_isdst << endl;
+    //tm_isdst -> The difference in hours between winter time and summer time.
+
+    return 0;
+}
