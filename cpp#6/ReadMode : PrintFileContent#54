@@ -1,0 +1,32 @@
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<string>
+#include<fstream> //Use this library.(file stream)
+using namespace std;
+
+void PrintFileContent(string FileName)
+{
+    fstream MyFile;
+    MyFile.open(FileName, ios::in);//read mode
+
+    if (MyFile.is_open())
+    {
+        string Line;
+        while (getline(MyFile, Line))
+        {
+            cout << Line << endl;
+        }
+
+        MyFile.close();
+    }
+}
+
+int main()
+{   
+    PrintFileContent("MyFile.txt");
+
+    //It does not allow editing the file; it only allows me to read from it.
+
+    return 0;
+}
