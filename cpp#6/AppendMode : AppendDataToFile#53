@@ -1,0 +1,23 @@
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<fstream> //Use this library.(file stream)
+using namespace std;
+
+int main()
+{   
+    fstream MyFile;
+    MyFile.open("MyFile.txt", ios::out | ios::app);//append Mode.
+
+    if (MyFile.is_open())
+    {
+        MyFile << "This append mode\n";
+        MyFile << "add data without losing the existing data\n";
+
+        MyFile.close();
+    }
+
+    //In append mode, Adding data without losing the existing data.
+    //You can use -> MyFile.open("MyFile.txt", ios::out | ios::app); OR MyFile.open("MyFile.txt", ios::app);
+    return 0;
+}
