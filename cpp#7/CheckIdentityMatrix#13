@@ -18,7 +18,7 @@ void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
     {
         for (int j = 0; j < Cols; j++)
         {
-            arr[i][j] = RandomNumber(0, 1);
+            arr[i][j] = RandomNumber(1, 10);
         }
     }
 }
@@ -99,7 +99,7 @@ void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
     {
         for (int j = 0; j < Cols; j++)
         {
-            arr[i][j] = RandomNumber(0, 1);
+            arr[i][j] = RandomNumber(1, 10);
         }
     }
 }
