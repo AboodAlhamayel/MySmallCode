@@ -1,0 +1,159 @@
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<iomanip>
+#include <cmath> //We use ceil
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+    //Function to generate a random number
+
+    int Random = rand() % (To - From + 1) + From;
+    return Random;
+}
+
+void FillMatrixWithRandomZerosAndOnes(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            arr[i][j] = RandomNumber(0, 1);
+        }
+    }
+}
+
+void PrintMatrix(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            //printf(" %0*d  ", 2, arr[i][j]);
+            cout << setw(3) << arr[i][j] << "   ";
+        }
+        cout << endl;
+    }
+}
+
+short CountNumberInMatrix(int Matrix1[3][3], int Number, short Rows, short Cols)
+{
+    short NumberCount = 0;
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            if (Matrix1[i][j] == Number)
+                NumberCount++;
+        }
+    }
+    return NumberCount;
+}
+
+bool IsSparceMatrix(int Matrix1[3][3], short Rows, short Cols)
+{
+    short MatrixSize = Rows * Cols;
+
+    return (CountNumberInMatrix(Matrix1, 0, Rows, Cols) >= ceil((float)MatrixSize / 2));
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    
+    int Matrix1[3][3], Number;
+
+    FillMatrixWithRandomZerosAndOnes(Matrix1, 3, 3);
+    cout << "Matrix1 :\n";
+    PrintMatrix(Matrix1, 3, 3);
+
+    if (IsSparceMatrix(Matrix1, 3, 3))
+        cout << "\nYes , its sparce";
+    else
+        cout << "\nNo , its NOT sparce";
+
+    system("pause>0");
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<iomanip>
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+    //Function to generate a random number
+
+    int Random = rand() % (To - From + 1) + From;
+    return Random;
+}
+
+void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            arr[i][j] = RandomNumber(0, 1);
+        }
+    }
+}
+
+void PrintMatrix(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            //printf(" %0*d  ", 2, arr[i][j]);
+            cout << setw(3) << arr[i][j] << "   ";
+        }
+        cout << endl;
+    }
+}
+
+bool IsSparceMatrix(int Matrix1[3][3], short Rows, short Cols)
+{
+    short Count = 0;
+    for (short i = 0; i < Rows; i++)
+    {
+        for (short j = 0; j < Cols; j++)
+        {
+            if (Matrix1[i][j] == 0)
+                Count++;
+        }
+    }
+    cout << "\nCount zeros : " << Count << endl;
+    if (Count >= 5)
+        return true;
+    else
+        return false;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    
+    int Matrix1[3][3], Number;
+
+    FillMatrixWithRandomNumbers(Matrix1, 3, 3);
+    cout << "Matrix1 :\n";
+    PrintMatrix(Matrix1, 3, 3);
+
+    if (IsSparceMatrix(Matrix1, 3, 3))
+        cout << "\nYes , its sparce";
+    else
+        cout << "\nNo , its NOT sparce";
+
+    system("pause>0");
+
+    return 0;
+}
