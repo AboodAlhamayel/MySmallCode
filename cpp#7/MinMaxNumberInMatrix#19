@@ -2,7 +2,6 @@
 #include "MyLib.h"
 #include "SumLib.h"
 #include<iomanip>
-#include <cmath> //We use ceil
 using namespace std;
 
 int RandomNumber(int From, int To)
