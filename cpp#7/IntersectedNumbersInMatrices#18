@@ -75,7 +75,7 @@ int main()
 {
     srand((unsigned)time(NULL));
 
-    int Matrix1[3][3], Matrix2[3][3], IntersectedNumbers[9], Elements[9];
+    int Matrix1[3][3], Matrix2[3][3];
 
     FillMatrixWithRandomNumbers(Matrix1, 3, 3);
     cout << "Matrix1 :\n";
