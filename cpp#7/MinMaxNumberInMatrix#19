@@ -1,1 +1,186 @@
-//
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<iomanip>
+#include <cmath> //We use ceil
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+    //Function to generate a random number
+
+    int Random = rand() % (To - From + 1) + From;
+    return Random;
+}
+
+void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            arr[i][j] = RandomNumber(1, 10);
+        }
+    }
+}
+
+int Element(int Matrix1[3][3], short first, short last)
+{
+    return (Matrix1[first][last]);
+}
+
+void PrintMatrix(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            //printf(" %0*d  ", 2, arr[i][j]);
+            cout << setw(3) << arr[i][j] << "   ";
+        }
+        cout << endl;
+    }
+}
+
+int MinNumberInMatrix(int Matrix1[3][3], short Rows, short Cols)
+{
+    int Min = Matrix1[0][0];
+    for (short i = 0; i < Rows; i++)
+    {
+        for (short j = 0; j < Cols; j++)
+        {
+            if (Matrix1[i][j] < Min)
+                Min = Matrix1[i][j];
+        }
+    }
+    return Min;
+}
+
+int MaxNumberInMatrix(int Matrix1[3][3], short Rows, short Cols)
+{
+    int Max = Matrix1[0][0];
+    for (short i = 0; i < Rows; i++)
+    {
+        for (short j = 0; j < Cols; j++)
+        {
+            if (Matrix1[i][j] > Max)
+                Max = Matrix1[i][j];
+        }
+    }
+    return Max;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Matrix1[3][3];
+
+    FillMatrixWithRandomNumbers(Matrix1, 3, 3);
+    cout << "Matrix1 :\n";
+    PrintMatrix(Matrix1, 3, 3);
+
+    cout << "\nMinimum Number is : ";
+    cout << MinNumberInMatrix(Matrix1, 3, 3) << endl;
+
+    cout << "\nMaximum Number is : ";
+    cout << MaxNumberInMatrix(Matrix1, 3, 3) << endl;
+
+    system("pause>0");
+
+    return 0;
+}
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+#include<iostream>
+#include "MyLib.h"
+#include "SumLib.h"
+#include<iomanip>
+#include <cmath> //We use ceil
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+    //Function to generate a random number
+
+    int Random = rand() % (To - From + 1) + From;
+    return Random;
+}
+
+void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            arr[i][j] = RandomNumber(1, 10);
+        }
+    }
+}
+
+int Element(int Matrix1[3][3], short first, short last)
+{
+    return (Matrix1[first][last]);
+}
+
+void PrintMatrix(int arr[3][3], short Rows, short Cols)
+{
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            //printf(" %0*d  ", 2, arr[i][j]);
+            cout << setw(3) << arr[i][j] << "   ";
+        }
+        cout << endl;
+    }
+}
+
+int PrintMinNumber(int Matrix1[3][3], short Rows, short Cols)
+{
+    short Num = Matrix1[0][0];
+    for (short i = 0; i < Rows; i++)
+    {
+        for (short j = 0; j < Cols; j++)
+        {
+            if (Num > Matrix1[i][j])
+                Num = Matrix1[i][j];
+        }
+    }
+    return Num;
+}
+
+int PrintMaxNumber(int Matrix1[3][3], short Rows, short Cols)
+{
+    short Num = Matrix1[0][0];
+    for (short i = 0; i < Rows; i++)
+    {
+        for (short j = 0; j < Cols; j++)
+        {
+            if (Num < Matrix1[i][j])
+                Num = Matrix1[i][j];
+        }
+    }
+    return Num;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int Matrix1[3][3];
+
+    FillMatrixWithRandomNumbers(Matrix1, 3, 3);
+    cout << "Matrix1 :\n";
+    PrintMatrix(Matrix1, 3, 3);
+
+    cout << "\nMinimum Number is : " << PrintMinNumber(Matrix1, 3, 3) << endl;
+    cout << "\nMaximum Number is : " << PrintMaxNumber(Matrix1, 3, 3) << endl;
+
+    system("pause>0");
+
+    return 0;
+}
