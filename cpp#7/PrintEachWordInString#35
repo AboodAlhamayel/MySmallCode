@@ -1,1 +1,45 @@
-//
+
+
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+//this is my sol ( must one space , if more one space -> its not perfect )
+
+#include<iostream>
+#include"MyLib.h";
+#include"SumLib.h";
+#include <string>
+using namespace std;
+
+string ReadString()
+{
+    string S1;
+    cout << "Please Enter Your String ?\n";
+    getline(cin, S1);
+    return S1;
+}
+
+void StringWord(string S1)
+{
+    cout << "\nYour string words are :\n\n";
+    for (short i = 0; i < S1.length(); i++)
+    {
+        if (S1[i] != ' ')
+            cout << S1[i];
+        else
+            cout << endl;
+    }
+}
+
+int main()
+{
+    string S1 = ReadString();
+    cout << endl;
+    StringWord(S1);
+
+    system("pause>0");
+
+    return 0;
+}
