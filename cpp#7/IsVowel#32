@@ -1,4 +1,6 @@
 #include<iostream>
+#include"MyLib.h";
+#include"SumLib.h";
 #include <string>
 using namespace std;
 
@@ -35,6 +37,8 @@ int main()
 #######################################################################
 
 #include<iostream>
+#include"MyLib.h";
+#include"SumLib.h";
 #include <string>
 using namespace std;
 
