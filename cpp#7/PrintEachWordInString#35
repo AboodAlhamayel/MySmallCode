@@ -1,6 +1,6 @@
 #include<iostream>
-#include"MyLib.h";
-#include"SumLib.h";
+#include"MyLib.h"
+#include"SumLib.h"
 #include <string>
 using namespace std;
 
@@ -21,7 +21,7 @@ void PrintEachWordInString(string S1)
     string sWord; //define a string variable
 
     //use find() function to get the position of the delimiters
-    while ((Pos = S1.find(delim)) != std::string::npos)
+    while ((Pos = S1.find(delim)) != std::string::npos)  // if no space is found, find() returns std::string::npos
     {
         sWord = S1.substr(0, Pos); // Store the word
         if (sWord != "")
@@ -55,8 +55,8 @@ int main()
 //this is my sol ( must one space , if more one space -> its not perfect )
 
 #include<iostream>
-#include"MyLib.h";
-#include"SumLib.h";
+#include"MyLib.h"
+#include"SumLib.h"
 #include <string>
 using namespace std;
 
