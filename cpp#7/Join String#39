@@ -26,3 +26,47 @@ int main()
 
     return 0;
 }
+
+#############################################
+
+#include<iostream>
+#include"MyLib.h"
+#include"SumLib.h"
+#include <string>
+#include<vector>
+using namespace std;
+
+string JoinString(vector <string> vString, string delim)
+{
+	string sWord;
+
+	for (short i = 0; i < vString.size(); i++)
+	{
+		if (i != vString.size() - 1)
+			sWord = sWord + vString[i] + delim;
+		else
+			sWord = sWord + vString[i];
+	}
+	return sWord;
+}
+
+vector <string> FillVstring(vector <string> vString)
+{
+	vString.push_back("ali");
+	vString.push_back("ahmad");
+	vString.push_back("mohammad");
+	vString.push_back("morad");
+	vString.push_back("name");
+
+	return vString;
+}
+
+int main()
+{
+	vector <string> vString;
+	vString = FillVstring(vString);
+	cout << "the string : " << JoinString(vString, ",");
+
+	system("pause>0");
+}
+
