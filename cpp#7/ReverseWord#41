@@ -1,1 +1,139 @@
-/
+#include<iostream>
+#include"MyLib.h"
+#include"SumLib.h"
+#include <string>
+#include<vector>
+using namespace std;
+
+string ReadString(string Message)
+{
+	string S1;
+	cout << Message << endl;
+	getline(cin, S1);
+	return S1;
+}
+
+vector<string> SplitString(string S1, string Delim)
+{
+	vector <string> MyVector;
+	short Pos = 0;
+	string sWord;
+
+	while ((Pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, Pos);
+		if (sWord != "")
+		{
+			MyVector.push_back(sWord);
+		}
+		S1.erase(0, Pos + Delim.length());
+	}
+
+	if (S1 != "")
+	{
+		MyVector.push_back(S1);
+	}
+
+	return MyVector;
+}
+
+string ReverseWordsInString(string S1)
+{
+	vector <string> vString;
+	string S2 = "";
+
+	vString = SplitString(S1, " ");
+
+	vector<string>::iterator iter = vString.end();
+
+	while (iter != vString.begin())
+	{
+		--iter;
+		S2 += *iter + " ";
+	}
+
+	S2 = S2.substr(0, S2.length() - 1);//Remove last space ..
+
+	return S2;
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	string S1 = ReadString("Please enter your string :");
+
+	cout << "\nstring after reversing words : \n";
+	cout << ReverseWordsInString(S1) << endl;
+
+	cout << endl;
+}
+
+###########################################################
+###########################################################
+###########################################################
+
+#include<iostream>
+#include"MyLib.h"
+#include"SumLib.h"
+#include <string>
+#include<vector>
+using namespace std;
+
+string ReadString(string Message)
+{
+	string S1;
+	cout << Message << endl;
+	getline(cin, S1);
+	return S1;
+}
+
+vector<string> Split(string S1, string Delim)
+{
+	vector <string> MyVector;
+	short Pos = 0;
+	string sWord;
+
+	while ((Pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, Pos);
+		if (sWord != "")
+		{
+			MyVector.push_back(sWord);
+		}
+		S1.erase(0, Pos + Delim.length());
+	}
+
+	if (S1 != "")
+	{
+		MyVector.push_back(S1);
+	}
+
+	return MyVector;
+}
+
+string ReverseWords(string S1)
+{
+	vector <string> vString = Split(S1, " ");
+	string S2 = "";
+
+	for (short i = vString.size(); i > 0; i--)
+	{
+		S2 = S2 + vString.back() + " ";
+		vString.pop_back();
+	}
+
+	return S2;
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	string S1 = ReadString("Please enter your string :");
+
+	cout << "\nstring after reversing words : \n";
+	cout << ReverseWords(S1) << endl;
+
+	cout << endl;
+}
