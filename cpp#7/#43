@@ -1,0 +1,196 @@
+#include<iostream>
+#include"MyLib.h"
+#include"SumLib.h"
+#include <string>
+#include<vector>
+using namespace std;
+
+vector<string> SplitString(string S1, string Delim)
+{
+	vector <string> MyVector;
+	short Pos = 0;
+	string sWord;
+
+	while ((Pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, Pos);
+		if (sWord != "")
+		{
+			MyVector.push_back(sWord);
+		}
+		S1.erase(0, Pos + Delim.length());
+	}
+
+	if (S1 != "")
+	{
+		MyVector.push_back(S1);
+	}
+
+	return MyVector;
+}
+
+string JoinString(vector <string> vString, string delim)
+{
+	string S1 = "";
+
+	for (string& s : vString)
+	{
+		S1 = S1 + s + delim;
+	}
+
+	return S1.substr(0, S1.length() - delim.length());
+}
+
+string LowerAllString(string S1)
+{
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (S1[i] != ' ')
+		{
+			S1[i] = tolower(S1[i]);
+		}
+	}
+	return S1;
+}
+
+string ReplaceWordInStringUsingSplit(string S1, string StringToReplace, string ReplaceTo, bool MatchCase = true)
+{
+	vector <string> vString = SplitString(S1, " ");
+
+	for (string& s : vString)
+	{
+		if (MatchCase)
+		{
+			if (s == StringToReplace)
+			{
+				s = ReplaceTo;
+			}
+		}
+		else
+		{
+			if (LowerAllString(s) == LowerAllString(StringToReplace))
+			{
+				s = ReplaceTo;
+			}
+		}
+	}
+
+	return JoinString(vString, " ");
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	string S1 = "Welcom to Jordan , Jordan is a nice country";
+	string StringToReplace = "jordan";
+	string ReplaceTo = "USA";
+
+	cout << "\nOriginal String :\n" << S1;
+
+	cout << "\n\nReplace with match case :\n";
+	cout << ReplaceWordInStringUsingSplit(S1, StringToReplace, ReplaceTo);
+
+	cout << "\n\nReplace with dont match case :\n";
+	cout << ReplaceWordInStringUsingSplit(S1, StringToReplace, ReplaceTo, false);
+
+	cout << endl;
+}
+
+
+//###########################################
+//###########################################
+//###########################################
+
+
+NOT COMPLETE////
+
+#include<iostream>
+#include"MyLib.h"
+#include"SumLib.h"
+#include <string>
+#include<vector>
+using namespace std;
+
+vector<string> SplitString(string S1, string Delim)
+{
+	vector <string> MyVector;
+	short Pos = 0;
+	string sWord;
+
+	while ((Pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, Pos);
+		if (sWord != "")
+		{
+			MyVector.push_back(sWord);
+		}
+		S1.erase(0, Pos + Delim.length());
+	}
+
+	if (S1 != "")
+	{
+		MyVector.push_back(S1);
+	}
+
+	return MyVector;
+}
+
+string ReplaceWordsInString(string S1, string StringToReplace, string ReplaceTo, bool MatchCase = true)
+{
+	vector <string> vString;
+	string S2 = "";
+	vString = SplitString(S1, " ");
+
+	if (MatchCase)
+	{
+		for (string& s : vString)
+		{
+			if (s == StringToReplace)
+			{
+				s = ReplaceTo;
+				S2 += s + " ";
+			}
+			else
+			{
+				S2 += s + " ";
+			}
+		}
+	}
+	else
+	{
+		bool Same = false;
+		for (string& s : vString)
+		{
+			for (short i = 0; i < s.length(); i++)
+			{
+				if ((tolower(s[i])) == (tolower(StringToReplace[i])))
+				{
+					Same = true;
+				}
+			}
+			S2 += " ";
+		}
+	}
+
+	return S2;
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	string S1 = "Welcom to Jordan , Jordan is a nice country";
+	string StringToReplace = "jordan";
+	string ReplaceTo = "USA";
+
+	cout << "\nOriginal String :\n" << S1;
+
+	cout << "\n\nReplace with match case :\n";
+	cout << ReplaceWordsInString(S1, StringToReplace, ReplaceTo);
+
+	cout << "\n\nReplace with dont match case :\n";
+	cout << ReplaceWordsInString(S1, StringToReplace, ReplaceTo, false);
+
+	cout << endl;
+}
