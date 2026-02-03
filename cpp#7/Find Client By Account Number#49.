@@ -1,0 +1,285 @@
+#include<iostream>
+#include"MyLib.h"
+#include"SumLib.h"
+#include <string>
+#include<vector>
+#include <fstream>
+using namespace std;
+
+const string ClientsFileName = "Clients.txt";
+
+struct sClient
+{
+	string AccNumber;
+	string PinCode;
+	string Name;
+	string Phone;
+	double AccBalance;
+};
+
+vector<string> SplitString(string S1, string Delim)
+{
+	vector<string> vString;
+
+	short Pos = 0;
+	string sWord;
+
+	while ((Pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, Pos);
+		if (sWord != "")
+		{
+			vString.push_back(sWord);
+		}
+
+		S1.erase(0, Pos + Delim.length());
+	}
+
+	if (S1 != "")
+	{
+		vString.push_back(S1);
+	}
+
+	return vString;
+}
+
+sClient ConvertLineToRecord(string stLine, string Seperator = "#//#")
+{
+	sClient Client;
+	vector <string> vClientData;
+
+	vClientData = SplitString(stLine, Seperator);
+
+	Client.AccNumber = vClientData[0];
+	Client.PinCode = vClientData[1];
+	Client.Name = vClientData[2];
+	Client.Phone = vClientData[3];
+	Client.AccBalance = stod(vClientData[4]);
+
+	return Client;
+}
+
+vector <sClient> LoadClientsDataFromFile(string FileName)
+{
+	vector <sClient> vClients;
+
+	fstream MyFile;
+	MyFile.open(FileName, ios::in); //read Mode
+
+	if (MyFile.is_open())
+	{
+		string Line;
+		sClient Client;
+
+		while (getline(MyFile, Line))
+		{
+			Client = ConvertLineToRecord(Line);
+
+			vClients.push_back(Client);
+		}
+		MyFile.close();
+	}
+	return vClients;
+}
+
+string ReadAccNumber()
+{
+	string AccountNumber = "";
+
+	cout << "Please enter account number : ";
+	cin >> AccountNumber;
+	return AccountNumber;
+}
+
+bool FindClientByAccountNumber(string AccountNumber, sClient& Client)
+{
+	vector <sClient> vClient;
+	vClient = LoadClientsDataFromFile(ClientsFileName);
+
+	for (sClient C : vClient)
+	{
+		if (C.AccNumber == AccountNumber)
+		{
+			Client = C;
+			return true;
+		}
+	}
+	return false;
+}
+
+void PrintClientCard(sClient Client)
+{
+	cout << "\nThe following are the client details :\n";
+	cout << "\nAccount Number : " << Client.AccNumber;
+	cout << "\nPin Code :       " << Client.PinCode;
+	cout << "Name       :       " << Client.Name;
+	cout << "Phone      :       " << Client.Phone;
+	cout << "Acc Balance :      " << Client.AccBalance;
+}
+
+int main()
+{
+	sClient Client;
+	string AccountNumber = ReadAccNumber();
+
+	if (FindClientByAccountNumber(AccountNumber, Client))
+	{
+		PrintClientCard(Client);
+	}
+	else
+		cout << "\nClient with Account Number (" << AccountNumber << ") Not Found!\n";
+
+	system("pause>0");
+	return 0;
+}
+
+//###########################################
+//###########################################
+//###########################################
+
+#include<iostream>
+#include"MyLib.h"
+#include"SumLib.h"
+#include <string>
+#include<vector>
+#include <fstream>
+using namespace std;
+
+const string ClientsFileName = "Clients.txt";
+
+struct sClient
+{
+	string AccNumber;
+	string PinCode;
+	string Name;
+	string Phone;
+	double AccBalance;
+};
+
+vector<string> SplitString(string S1, string Delim)
+{
+	vector<string> vString;
+
+	short Pos = 0;
+	string sWord;
+
+	while ((Pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, Pos);
+		if (sWord != "")
+		{
+			vString.push_back(sWord);
+		}
+
+		S1.erase(0, Pos + Delim.length());
+	}
+
+	if (S1 != "")
+	{
+		vString.push_back(S1);
+	}
+
+	return vString;
+}
+
+sClient ConvertLineToRecord(string stLine, string Seperator = "#//#")
+{
+	sClient Client;
+	vector <string> vClientData;
+
+	vClientData = SplitString(stLine, Seperator);
+
+	Client.AccNumber = vClientData[0];
+	Client.PinCode = vClientData[1];
+	Client.Name = vClientData[2];
+	Client.Phone = vClientData[3];
+	Client.AccBalance = stod(vClientData[4]);
+
+	return Client;
+}
+
+vector <sClient> LoadClientsDataFromFile(string FileName)
+{
+	vector <sClient> vClients;
+
+	fstream MyFile;
+	MyFile.open(FileName, ios::in); //read Mode
+
+	if (MyFile.is_open())
+	{
+		string Line;
+		sClient Client;
+
+		while (getline(MyFile, Line))
+		{
+			Client = ConvertLineToRecord(Line);
+
+			vClients.push_back(Client);
+		}
+		MyFile.close();
+	}
+	return vClients;
+}
+
+string ReadAccNumber()
+{
+	cout << "Please enter account number : ";
+	string AccNumber;
+	cin >> AccNumber;
+	return AccNumber;
+}
+
+void PrintClientRecord(sClient Client)
+{
+	cout << "Acc Number \t\t:" << Client.AccNumber << endl;
+	cout << "Pin Code   \t\t:" << Client.PinCode << endl;
+	cout << "Name       \t\t:" << Client.Name << endl;
+	cout << "Phone      \t\t:" << Client.Phone << endl;
+	cout << "Acc Balance\t\t:" << Client.AccBalance << endl;
+}
+
+void PrintAllClientsData(vector <sClient> vClients, string AccountNumber)
+{
+	for (sClient Client : vClients)
+	{
+		if (Client.AccNumber == AccountNumber)
+		{
+			PrintClientRecord(Client);
+			cout << endl;
+		}
+	}
+}
+
+bool SearchAccNumber(vector <sClient> vClients, string AccountNumber)
+{
+	for (sClient& Client : vClients)
+	{
+		if (Client.AccNumber == AccountNumber)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+int main()
+{
+	string AccountNumber = ReadAccNumber();
+	vector <sClient> vClients;
+	sClient Client;
+
+	vClients = LoadClientsDataFromFile(ClientsFileName);
+
+
+	if (SearchAccNumber(vClients, AccountNumber))
+	{
+		cout << "\nThe following client details :\n\n";
+		PrintAllClientsData(vClients, AccountNumber);
+	}
+	else
+		cout << "\nClient with Account Number (" << AccountNumber << ") Not Found!\n";
+
+
+	system("pause>0");
+	return 0;
+}
