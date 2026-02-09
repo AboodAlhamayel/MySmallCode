@@ -1,0 +1,1452 @@
+#pragma once
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+namespace MyLib
+{
+
+	//srand((unsigned)time(NULL));  ->  Using it with Random Number ..
+
+	//###########################################
+
+	void Test()
+	{
+		cout << "This is my lib!" << endl; 
+	}
+
+	//###########################################
+
+	int Sum2Numbers(int Num1, int Num2)
+	{
+		return Num1 + Num2;
+	}
+
+	//###########################################
+
+	int RandomNumber(int From, int To)
+	{
+		//Function to generate a random number
+
+		int Random = rand() % (To - From + 1) + From;
+		return Random;
+	}
+
+	//###########################################
+
+	void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
+	{
+		for (int i = 0; i < Rows; i++)
+		{
+			for (int j = 0; j < Cols; j++)
+			{
+				arr[i][j] = RandomNumber(1, 100);
+			}
+		}
+	}
+
+	//###########################################
+
+	void PrintMatrix(int arr[3][3], short Rows, short Cols)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				cout << setw(3) << arr[i][j] << "     ";
+			}
+			cout << endl;
+		}
+	}
+
+	//###########################################
+
+	int RowSum(int arr[3][3], short RowNumber, short Cols)
+	{
+		int Sum = 0;
+		for (short j = 0; j < Cols; j++)
+		{
+			Sum += arr[RowNumber][j];
+		}
+		return Sum;
+	}
+
+	////////
+
+	void SumMatrixRowsInArray(int arr[3][3], int arr1[3], short Rows, short Cols)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			arr1[i] = RowSum(arr, i, Cols);
+		}
+	}
+
+	////////
+
+	void PrintRowsSumArray(int arrSum[3], short Rows)
+	{
+		cout << "\nThe following are the sum of each row in the matrix :\n";
+		for (short i = 0; i < Rows; i++)
+		{
+			cout << "Row " << i + 1 << " Sum = " << arrSum[i] << endl;
+		}
+	}
+
+	//###########################################
+
+	int ColSum(int arr[3][3], short Rows, short ColsNumber)
+	{
+		int Sum = 0;
+		for (short i = 0; i < Rows; i++)
+		{
+			Sum += arr[i][ColsNumber];
+		}
+		return Sum;
+	}
+
+	////////
+
+	void SumMatrixColsInArray(int arr[3][3], int arrSum[3], short Rows, short Cols)
+	{
+		for (short i = 0; i < Cols; i++)
+		{
+			arrSum[i] = ColSum(arr, Rows, i);
+		}
+	}
+
+	////////
+
+	void PrintColsSumArray(int arrSum[3], short Length)
+	{
+		cout << "\nThe following are the sum of each col in the matrix :\n";
+		for (short i = 0; i < Length; i++)
+		{
+			cout << "Col " << i + 1 << " Sum = " << arrSum[i] << endl;
+		}
+	}
+
+	//###########################################
+
+	void FillMatrixWithOrderedNumbers(int arr[3][3], short Rows, short Cols)
+	{
+		short Counter = 0;
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				Counter++;
+				arr[i][j] = Counter;
+			}
+		}
+	}
+
+	///////
+
+	void FillMatrixWithRandomZerosAndOnes(int arr[3][3], short Rows, short Cols)
+	{
+		for (int i = 0; i < Rows; i++)
+		{
+			for (int j = 0; j < Cols; j++)
+			{
+				arr[i][j] = RandomNumber(0, 1);
+			}
+		}
+	}
+
+	//###########################################
+
+	void TransposeMatrix(int arr[3][3], int arrTransposed[3][3], short Rows, short Cols)
+	{
+		short save;
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				arrTransposed[i][j] = arr[j][i];
+			}
+		}
+	}
+
+	//###########################################
+
+	void MultiplyMatrix(int Matrix1[3][3], int Matrix2[3][3], int MatrixResults[3][3], short Rows, short Cols)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				MatrixResults[i][j] = Matrix1[i][j] * Matrix2[i][j];
+			}
+		}
+	}
+
+	//###########################################
+
+	void PrintMiddleRowOfMatrix(int arr[3][3], short Rows, short Cols)
+	{
+		short MiddleRow = Rows / 2;
+		for (short j = 0; j < Cols; j++)
+		{
+			printf(" %0*d  ", 2, arr[MiddleRow][j]);
+			//cout << setw(3) << arr[MiddleRow][j] << "   ";
+		}
+		cout << endl;
+	}
+
+	////////
+
+	void PrintMiddleColOfMatrix(int arr[3][3], short Rows, short Cols)
+	{
+		short MiddleCol = Cols / 2;
+		for (short i = 0; i < Rows; i++)
+		{
+			printf(" %0*d  ", 2, arr[i][MiddleCol]);
+			//cout << setw(3) << arr[i][MiddleCol] << "   ";
+		}
+		cout << endl;
+	}
+
+	//###########################################
+
+	int SumOfMatrix(int Matrix1[3][3], short Rows, short Cols)
+	{
+		int Sum = 0;
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				Sum += Matrix1[i][j];
+			}
+		}
+		return Sum;
+	}
+
+	//###########################################
+
+	bool AreEqualMatrices(int Matrix1[3][3], int Matrix2[3][3], short Rows, short Cols)
+	{
+		return (SumOfMatrix(Matrix1, Rows, Cols) == SumOfMatrix(Matrix2, Rows, Cols));
+	}
+
+	//###########################################
+
+	bool AreTypicalMatrices(int Matrix1[3][3], int Matrix2[3][3], short Rows, short Cols)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				if (Matrix1[i][j] != Matrix2[i][j])
+					return false;
+			}
+		}
+		return true;
+	}
+
+	//###########################################
+
+	bool IsIdentityMatrix(int Matrix1[3][3], short Rows, short Cols)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				if (i == j && Matrix1[i][j] != 1)
+				{
+					return false;
+				}
+				else if (i != j && Matrix1[i][j] != 0)
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	//###########################################
+
+	bool IsScalarMatrix(int Matrix1[3][3], short Rows, short Cols)
+	{
+		int FirstDiagonalElement = Matrix1[0][0];
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				if (i == j && Matrix1[i][j] != FirstDiagonalElement)
+				{
+					return false;
+				}
+				else if (i != j && Matrix1[i][j] != 0)
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	//###########################################
+
+	short CountNumberInMatrix(int Matrix1[3][3], int Number, short Rows, short Cols)
+	{
+		short NumberCount = 0;
+		for (int i = 0; i < Rows; i++)
+		{
+			for (int j = 0; j < Cols; j++)
+			{
+				if (Matrix1[i][j] == Number)
+					NumberCount++;
+			}
+		}
+		return NumberCount;
+	}
+
+	//###########################################
+
+	bool IsSparceMatrix(int Matrix1[3][3], short Rows, short Cols)
+	{
+		short MatrixSize = Rows * Cols;
+
+		return (CountNumberInMatrix(Matrix1, 0, Rows, Cols) >= ceil((float)MatrixSize / 2));
+	}
+
+	//###########################################
+
+	bool IsNumberInMatrix(int Matrix1[3][3], int Number, short Rows, short Cols)
+	{
+		for (int i = 0; i < Rows; i++)
+		{
+			for (int j = 0; j < Cols; j++)
+			{
+				if (Matrix1[i][j] == Number)
+					return true;
+			}
+		}
+		return false;
+	}
+
+	//###########################################
+
+	void PrintIntersectedNumbers(int Matrix1[3][3], int Matrix2[3][3], short Rows, short Cols)
+	{
+		int Number = 0;
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				Number = Matrix1[i][j];
+				if (IsNumberInMatrix(Matrix2, Number, Rows, Cols))
+				{
+					cout << setw(3) << Number << "     ";
+				}
+			}
+		}
+	}
+
+	//###########################################
+
+	int MinNumberInMatrix(int Matrix1[3][3], short Rows, short Cols)
+	{
+		int Min = Matrix1[0][0];
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				if (Matrix1[i][j] < Min)
+					Min = Matrix1[i][j];
+			}
+		}
+		return Min;
+	}
+
+	////////////
+
+	int MaxNumberInMatrix(int Matrix1[3][3], short Rows, short Cols)
+	{
+		int Max = Matrix1[0][0];
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				if (Matrix1[i][j] > Max)
+					Max = Matrix1[i][j];
+			}
+		}
+		return Max;
+	}
+
+	//###########################################
+
+	bool IsPalindromeMatrix(int Matrix1[3][3], short Rows, short Cols)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols / 2; j++)
+			{
+				if (Matrix1[i][j] != Matrix1[i][Cols - 1 - j])
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	//###########################################
+
+	void PrintFibonacciUsingLoop(short Number)
+	{
+		int FebNumber = 0;
+		int Prev2 = 0, Prev1 = 1;
+		cout << "1  ";
+		for (short i = 2; i <= Number; ++i)
+		{
+			FebNumber = Prev1 + Prev2;
+			cout << FebNumber << "  ";
+			Prev2 = Prev1;
+			Prev1 = FebNumber;
+		}
+	}
+
+	//###########################################
+
+	void PrintFibonacciUsingRecurssion(short Number, int Prev1, int Prev2)
+	{
+		int FebNumber = 0;
+		if (Number > 0)
+		{
+			FebNumber = Prev1 + Prev2;
+			Prev2 = Prev1;
+			Prev1 = FebNumber;
+			cout << FebNumber << "   ";
+
+			PrintFibonacciUsingRecurssion(Number - 1, Prev1, Prev2);
+		}
+	}
+
+	//###########################################
+
+	string ReadString()
+	{
+		string S1;
+		cout << "Please Enter Your String ?\n";
+		getline(cin, S1);
+		return S1;
+	}
+
+	//###########################################
+
+	void PrintFirstLetterOfEachWord(string S1)
+	{
+		bool isFirstLetter = true;
+
+		cout << "\nFirst letters of this string :\n";
+
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (S1[i] != ' ' && isFirstLetter)
+			{
+				cout << S1[i] << endl;
+			}
+			isFirstLetter = (S1[i] == ' ' ? true : false);
+		}
+	}
+
+	//###########################################
+
+	string UpperFirstLetterOfEachWord(string S1)
+	{
+		bool isFirstLetter = true;
+
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (S1[i] != ' ' && isFirstLetter)
+			{
+				S1[i] = toupper(S1[i]);
+			}
+			isFirstLetter = (S1[i] == ' ' ? true : false);
+		}
+		return S1;
+	}
+
+	//###########################################
+
+	string LowerFirstLetterOfEachWord(string S1)
+	{
+		bool isFirstLetter = true;
+
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (S1[i] != ' ' && isFirstLetter)
+			{
+				S1[i] = tolower(S1[i]);
+			}
+			isFirstLetter = (S1[i] == ' ' ? true : false);
+		}
+		return S1;
+	}
+
+	//###########################################
+
+	string UpperAllString(string S1)
+	{
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (S1[i] != ' ')
+			{
+				S1[i] = toupper(S1[i]);
+			}
+		}
+		return S1;
+	}
+
+	//###########################################
+
+	string LowerAllString(string S1)
+	{
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (S1[i] != ' ')
+			{
+				S1[i] = tolower(S1[i]);
+			}
+		}
+		return S1;
+	}
+
+	//###########################################
+
+	char ReadChar()
+	{
+		char Ch1;
+		cout << "Please Enter a Character ?\n";
+		cin >> Ch1;
+		return Ch1;
+	}
+
+	//###########################################
+
+	char InvertLetterCase(char Ch1)
+	{
+		return isupper(Ch1) ? tolower(Ch1) : toupper(Ch1);
+	}
+
+	////////
+
+	string InvertAllStringLettersCase(string S1)
+	{
+		for (short i = 0; i < S1.length(); i++)
+		{
+			S1[i] = InvertLetterCase(S1[i]);
+		}
+		return S1;
+	}
+
+	//###########################################
+
+	short CountCapitalLetters(string S1)
+	{
+		short Counter = 0;
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (isupper(S1[i]))
+				Counter++;
+		}
+		return Counter;
+	}
+
+	//###########################################
+
+	short CountSmallLetters(string S1)
+	{
+		short Counter = 0;
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (islower(S1[i]))
+				Counter++;
+		}
+		return Counter;
+	}
+
+	//###########################################
+
+	enum enWhatToCount { SmallLetters = 0, CapitalLetters = 1, All = 2 };
+
+	short CountLetters(string S1, enWhatToCount WhatToCount = enWhatToCount::All)
+	{
+		if (WhatToCount == enWhatToCount::All)
+		{
+			return S1.length();
+		}
+
+		short Counter = 0;
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (WhatToCount == enWhatToCount::CapitalLetters && isupper(S1[i]))
+				Counter++;
+
+			if (WhatToCount == enWhatToCount::SmallLetters && islower(S1[i]))
+				Counter++;
+		}
+		return Counter;
+	}
+
+	//###########################################
+
+	short CountLetter(string S1, char Letter, bool MatchCase = true)
+	{
+		short Counter = 0;
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (MatchCase)
+			{
+				if (S1[i] == Letter)
+					Counter++;
+			}
+			else
+			{
+				if (tolower(S1[i]) == tolower(Letter))
+					Counter++;
+			}
+		}
+		return Counter;
+	}
+
+	//###########################################
+
+	bool IsVowel(char Ch1)
+	{
+		Ch1 = tolower(Ch1);
+		return ((Ch1 == 'a') || (Ch1 == 'e') || (Ch1 == 'i') || (Ch1 == 'o') || (Ch1 == 'u'));
+	}
+
+	//###########################################
+
+	short CountVowels(string S1)
+	{
+		short Counter = 0;
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (IsVowel(S1[i]))
+				Counter++;
+		}
+		return Counter;
+	}
+
+	//###########################################
+
+	void PrintVowels(string S1)
+	{
+		cout << "\nVowels in string are : ";
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (IsVowel(S1[i]))
+				cout << S1[i] << "  ";
+		}
+	}
+
+	//###########################################
+
+	void PrintEachWordInString(string S1)
+	{
+		string delim = " "; //delimiter
+
+		cout << "\nYour string words are :\n\n";
+		short Pos = 0;
+		string sWord; //define a string variable
+
+		//use find() function to get the position of the delimiters
+		while ((Pos = S1.find(delim)) != std::string::npos)  // if no space is found, find() returns std::string::npos
+		{
+			sWord = S1.substr(0, Pos); // Store the word
+			if (sWord != "")
+			{
+				cout << sWord << endl;
+			}
+
+			S1.erase(0, Pos + delim.length()); // erase() until position and move to next word.
+		}
+
+		if (S1 != "")
+		{
+			cout << S1 << endl; // it print last word of the string.
+		}
+	}
+
+	//###########################################
+
+	short CountWordsInString(string S1)
+	{
+		string delim = " "; //delimiter
+		short Pos = 0;
+		short Counter = 0;
+		string sWord; //define a string variable
+
+		//use find() function to get the position of the delimiters
+		while ((Pos = S1.find(delim)) != std::string::npos)  // if no space is found, find() returns std::string::npos
+		{
+			sWord = S1.substr(0, Pos); // Store the word
+			if (sWord != "")
+			{
+				Counter++;
+			}
+
+			S1.erase(0, Pos + delim.length()); // erase() until position and move to next word.
+		}
+
+		if (S1 != "")
+		{
+			Counter++; //it counts the last word of the string
+		}
+		return Counter;
+	}
+
+	//###########################################
+
+	vector<string> SplitString(string S1, string Delim)
+	{
+		vector<string> vString;
+
+		short Pos = 0;
+		string sWord;
+
+		while ((Pos = S1.find(Delim)) != std::string::npos)
+		{
+			sWord = S1.substr(0, Pos);
+			if (sWord != "")
+			{
+				vString.push_back(sWord);
+			}
+
+			S1.erase(0, Pos + Delim.length());
+		}
+
+		if (S1 != "")
+		{
+			vString.push_back(S1);
+		}
+
+		return vString;
+	}
+
+	//###########################################
+
+	string TrimLeft(string S1)
+	{
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (S1[i] != ' ')
+			{
+				return S1.substr(i, S1.length() - 1);
+			}
+		}
+		return "";
+	}
+	
+	////////////
+
+	string TrimRight(string S1)
+	{
+		for (short i = S1.length() - 1; i >= 0; i--)
+		{
+			if (S1[i] != ' ')
+			{
+				return S1.substr(0, i + 1);
+			}
+		}
+		return "";
+	}
+
+	////////////
+
+	string Trim(string S1)
+	{
+		return (TrimLeft(TrimRight(S1)));
+	}
+
+	//###########################################
+
+	string JoinString(vector <string> vString, string delim)
+	{
+		string S1 = "";
+
+		for (string& s : vString)
+		{
+			S1 = S1 + s + delim;
+		}
+
+		return S1.substr(0, S1.length() - delim.length());
+	}
+
+	//###########################################
+
+	string JoinString(string arrString[], short Length, string Delim)
+	{
+		string S1 = "";
+
+		for (short i = 0; i < Length; i++)
+		{
+			S1 = S1 + arrString[i] + Delim;
+		}
+
+		return S1.substr(0, S1.length() - Delim.length());
+	}
+
+	//###########################################
+
+	vector<string> FillVector(vector <string>& vString, short N1)
+	{
+		string Name = "";
+		for (short i = 0; i < N1; i++)
+		{
+			cout << "\nPlease enter the name " << i + 1 << " : ";
+			cin >> Name;
+			vString.push_back(Name);
+		}
+		return vString;
+	}
+
+	//###########################################
+
+	string ReplaceWordInStringUsingBuiltInFunction(string S1, string StringToReplace, string sReplaceTo)
+	{
+		short Pos = S1.find(StringToReplace);
+
+		while (Pos != std::string::npos)
+		{
+			S1 = S1.replace(Pos, StringToReplace.length(), sReplaceTo);
+			Pos = S1.find(StringToReplace); // Find Next
+		}
+		return S1;
+	}
+
+	//###########################################
+
+	string ReverseWordsInString(string S1)
+	{
+		vector <string> vString;
+		string S2 = "";
+
+		vString = SplitString(S1, " ");
+
+		vector<string>::iterator iter = vString.end();
+
+		while (iter != vString.begin())
+		{
+			--iter;
+			S2 += *iter + " ";
+		}
+
+		S2 = S2.substr(0, S2.length() - 1);//Remove last space ..
+
+		return S2;
+	}
+
+	//###########################################
+
+	string ReplaceWordInStringUsingSplit(string S1, string StringToReplace, string ReplaceTo, bool MatchCase = true)
+	{
+		vector <string> vString = SplitString(S1, " ");
+
+		for (string& s : vString)
+		{
+			if (MatchCase)
+			{
+				if (s == StringToReplace)
+				{
+					s = ReplaceTo;
+				}
+			}
+			else
+			{
+				if (LowerAllString(s) == LowerAllString(StringToReplace))
+				{
+					s = ReplaceTo;
+				}
+			}
+		}
+
+		return JoinString(vString, " ");
+	}
+
+	//###########################################
+
+	string RemovePunctuationsFromString(string S1)
+	{
+		string S2 = "";
+		for (short i = 0; i < S1.length(); i++)
+		{
+			if (!ispunct(S1[i]))
+			{
+				S2 += S1[i];
+			}
+		}
+		return S2;
+	}
+	//###########################################
+	//###########################################
+	//###########################################
+	//////////////Client////////////////////////
+	//###########################################
+	//###########################################
+
+	//string ConvertRecordToLine(sClient Client, string Seperator = "#//#")
+	//{
+	//	string stClientRecord = "";
+
+	//	stClientRecord += Client.AccNumber + Seperator;
+	//	stClientRecord += Client.PinCode + Seperator;
+	//	stClientRecord += Client.Name + Seperator;
+	//	stClientRecord += Client.Phone + Seperator;
+	//	stClientRecord += to_string(Client.AccBalance);
+
+	//	return stClientRecord;
+	//}
+
+	//###########################################
+
+	//sClient ConvertLineToRecord(string stLine, string Seperator = "#//#")
+	//{
+	//	sClient Client;
+	//	vector <string> vClientData;
+
+	//	vClientData = SplitString(stLine, Seperator);
+
+	//	Client.AccNumber = vClientData[0];
+	//	Client.PinCode = vClientData[1];
+	//	Client.Name = vClientData[2];
+	//	Client.Phone = vClientData[3];
+	//	Client.AccBalance = stod(vClientData[4]);
+
+	//	return Client;
+	//}
+
+	//###########################################
+
+	/*sClient ReadNewClient()
+	{
+		sClient Client;
+
+		cout << "Enter account number ? ";
+		getline(cin, Client.AccNumber);
+
+		cout << "Enter PinCode ? ";
+		getline(cin, Client.PinCode);
+
+		cout << "Enter name ? ";
+		getline(cin, Client.Name);
+
+		cout << "Enter phone ? ";
+		getline(cin, Client.Phone);
+
+		cout << "Enter AccountBalance ? ";
+		cin >> Client.AccBalance;
+
+		return Client;
+	}*/
+
+	//###########################################
+
+	//void PrintClientRecord(sClient Client)
+	//{
+	//	cout << "\n\nThe following is the extracted client record :\n";
+
+	//	cout << "Account Number  : " << Client.AccNumber << endl;
+	//	cout << "Pin Code        : " << Client.PinCode << endl;
+	//	cout << "Name            : " << Client.Name << endl;
+	//	cout << "Phone           : " << Client.Phone << endl;
+	//	cout << "Account Balance : " << Client.AccBalance << endl;
+	//}
+
+	//###########################################
+
+	/*void AddDataLineToFile(string FileName, string stDataLine)
+	{
+		fstream MyFile;
+		MyFile.open(FileName, ios::out | ios::app);
+
+		if (MyFile.is_open())
+		{
+			MyFile << stDataLine << endl;
+			MyFile.close();
+		}
+	}
+
+	void AddNewClient()
+	{
+		sClient Client;
+		Client = ReadNewClient();
+		AddDataLineToFile(ClientsFileName, ConvertRecordToLine(Client));
+	}
+
+	void AddClients()
+	{
+		char AddMore = 'y';
+
+		do
+		{
+			system("cls");
+			cout << "Adding New Clients:\n\n";
+
+			AddNewClient();
+			cout << "\nClient Added Successfully, do you want to add more cliend ?";
+			cin >> AddMore;
+
+		} while (toupper(AddMore) == 'Y');
+	}*/
+
+
+	//###########################################
+	//###########################################
+	//###########################################
+	//###########################################
+	//###########################################
+	//###########################################
+
+	string ReadAccNumber()
+	{
+		string AccountNumber = "";
+
+		cout << "Please enter account number : ";
+		cin >> AccountNumber;
+		return AccountNumber;
+	}
+
+	//###########################################
+
+	//bool FindClientByAccountNumber(string AccountNumber, sClient& Client)
+	//{
+	//	vector <sClient> vClient;
+	//	vClient = LoadClientsDataFromFile(ClientsFileName);
+
+	//	for (sClient C : vClient)
+	//	{
+	//		if (C.AccNumber == AccountNumber)
+	//		{
+	//			Client = C;
+	//			return true;
+	//		}
+	//	}
+	//	return false;
+	//}
+
+	//###########################################
+
+	//void PrintClientCard(sClient Client)
+	//{
+	//	cout << "\nThe following are the client details :\n";
+	//	cout << "\nAccount Number : " << Client.AccNumber;
+	//	cout << "\nPin Code :       " << Client.PinCode;
+	//	cout << "Name       :       " << Client.Name;
+	//	cout << "Phone      :       " << Client.Phone;
+	//	cout << "Acc Balance :      " << Client.AccBalance;
+	//}
+
+	//###########################################
+
+}
+
+
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+
+#pragma once
+#include<iostream>
+using namespace std;
+
+namespace LastCourseSeven
+{
+
+	//struct sClient
+	//{
+	//	string AccNumber;
+	//	string PinCode;
+	//	string Name;
+	//	string Phone;
+	//	double AccBalance;
+	//	bool MarkForDelete = false;
+	//};
+
+	//vector<string> SplitString(string S1, string Delim)
+	//{
+	//	vector<string> vString;
+
+	//	short Pos = 0;
+	//	string sWord;
+
+	//	while ((Pos = S1.find(Delim)) != std::string::npos)
+	//	{
+	//		sWord = S1.substr(0, Pos);
+	//		if (sWord != "")
+	//		{
+	//			vString.push_back(sWord);
+	//		}
+
+	//		S1.erase(0, Pos + Delim.length());
+	//	}
+
+	//	if (S1 != "")
+	//	{
+	//		vString.push_back(S1);
+	//	}
+
+	//	return vString;
+	//}
+
+	//sClient ConvertLineToRecord(string stLine, string Seperator = "#//#")
+	//{
+	//	sClient Client;
+	//	vector <string> vClientData;
+
+	//	vClientData = SplitString(stLine, Seperator);
+
+	//	Client.AccNumber = vClientData[0];
+	//	Client.PinCode = vClientData[1];
+	//	Client.Name = vClientData[2];
+	//	Client.Phone = vClientData[3];
+	//	Client.AccBalance = stod(vClientData[4]);
+
+	//	return Client;
+	//}
+
+	//vector <sClient> LoadClientsDataFromFile(string FileName)
+	//{
+	//	vector <sClient> vClients;
+
+	//	fstream MyFile;
+	//	MyFile.open(FileName, ios::in); //read Mode
+
+	//	if (MyFile.is_open())
+	//	{
+	//		string Line;
+	//		sClient Client;
+
+	//		while (getline(MyFile, Line))
+	//		{
+	//			Client = ConvertLineToRecord(Line);
+
+	//			vClients.push_back(Client);
+	//		}
+	//		MyFile.close();
+	//	}
+	//	return vClients;
+	//}
+
+	//string ReadClientAccountNumber()
+	//{
+	//	string AccountNumber = "";
+
+	//	cout << "Please enter account number : ";
+	//	cin >> AccountNumber;
+	//	return AccountNumber;
+	//}
+
+	//string ConvertRecordToLine(sClient Client, string Seperator = "#//#")
+	//{
+	//	string stClientRecord = "";
+
+	//	stClientRecord += Client.AccNumber + Seperator;
+	//	stClientRecord += Client.PinCode + Seperator;
+	//	stClientRecord += Client.Name + Seperator;
+	//	stClientRecord += Client.Phone + Seperator;
+	//	stClientRecord += to_string(Client.AccBalance);
+
+	//	return stClientRecord;
+	//}
+
+	//bool FindClientByAccountNumber(string AccountNumber, vector	<sClient> vClients, sClient& Client)
+	//{
+	//	vClients = LoadClientsDataFromFile(ClientsFileName);
+
+	//	for (sClient C : vClients)
+	//	{
+	//		if (C.AccNumber == AccountNumber)
+	//		{
+	//			Client = C;
+	//			return true;
+	//		}
+	//	}
+	//	return false;
+	//}
+
+	//void PrintClientCard(sClient Client)
+	//{
+	//	cout << "\nThe following are the client details :\n";
+	//	cout << "\nAccount Number : " << Client.AccNumber;
+	//	cout << "\nPin Code :       " << Client.PinCode;
+	//	cout << "\nName       :       " << Client.Name;
+	//	cout << "\nPhone      :       " << Client.Phone;
+	//	cout << "\nAcc Balance :      " << Client.AccBalance;
+	//	cout << endl;
+	//}
+
+	//bool MarkClientForDeleteByAccountNumber(string AccountNumber, vector <sClient>& vClients)
+	//{
+	//	for (sClient& C : vClients)
+	//	{
+	//		if (C.AccNumber == AccountNumber)
+	//		{
+	//			C.MarkForDelete = true;
+	//			return true;
+	//		}
+	//	}
+	//	return false;
+	//}
+
+	//bool MarkClientForUpdateByAccountNumber(string AccountNumber, vector <sClient>& vClients)
+	//{
+	//	for (sClient& C : vClients)
+	//	{
+	//		if (C.AccNumber == AccountNumber)
+	//		{
+	//			C.MarkForDelete = true;
+	//			return true;
+	//		}
+	//	}
+	//	return false;
+	//}
+
+	//sClient UpdateVClients(sClient& C)
+	//{
+	//	cout << "Enter PinCode         ? ";
+	//	cin >> C.PinCode;
+	//	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+	//	cout << "Enter Name            ? ";
+	//	getline(cin, C.Name);
+
+	//	cout << "Enter Phone           ? ";
+	//	getline(cin, C.Phone);
+
+	//	cout << "Enter Account Balance ? ";
+	//	cin >> C.AccBalance;
+
+	//	return C;
+	//}
+
+	//vector <sClient> SaveClientsDataToFile(string FileName, vector <sClient>& vClients)
+	//{
+	//	fstream MyFile;
+	//	MyFile.open(FileName, ios::out);
+
+	//	string DataLine;
+
+	//	if (MyFile.is_open())
+	//	{
+	//		for (sClient C : vClients)
+	//		{
+	//			if (C.MarkForDelete == false)
+	//			{
+	//				DataLine = ConvertRecordToLine(C);
+	//				MyFile << DataLine << endl;
+	//			}
+	//		}
+	//		MyFile.close();
+	//	}
+	//	return vClients;
+	//}
+
+	//vector <sClient> SaveClientsDataToFile_Update(string FileName, vector <sClient>& vClients)
+	//{
+	//	fstream MyFile;
+	//	MyFile.open(FileName, ios::out);
+
+	//	string DataLine;
+
+	//	if (MyFile.is_open())
+	//	{
+	//		for (sClient C : vClients)
+	//		{
+	//			if (C.MarkForDelete == false)
+	//			{
+	//				DataLine = ConvertRecordToLine(C);
+	//				MyFile << DataLine << endl;
+	//			}
+	//			else
+	//			{
+	//				DataLine = ConvertRecordToLine(UpdateVClients(C));
+	//				MyFile << DataLine << endl;
+	//			}
+	//		}
+
+	//		MyFile.close();
+	//	}
+	//	return vClients;
+	//}
+
+	//bool DeleteClientByAccountNumber(string AccountNumber, vector <sClient>& vClients)
+	//{
+	//	sClient Client;
+	//	char Answer = 'n';
+
+	//	if (FindClientByAccountNumber(AccountNumber, vClients, Client))
+	//	{
+	//		PrintClientCard(Client);
+
+	//		cout << "\n\nAre you sure you want to delete this client ? y/n ?";
+	//		cin >> Answer;
+	//		if (Answer == 'y' || Answer == 'Y')
+	//		{
+	//			MarkClientForDeleteByAccountNumber(AccountNumber, vClients);
+	//			SaveClientsDataToFile_Delete(ClientsFileName, vClients);
+
+	//			vClients = LoadClientsDataFromFile(ClientsFileName);
+
+	//			cout << "\n\nClient Deleted Successfully.";
+	//			return true;
+	//		}
+	//	}
+	//	else
+	//	{
+	//		cout << "\nClient With Account Number (" << AccountNumber << ") is Not Fount\n";
+	//		return false;
+	//	}
+	//}
+
+	//bool UpdateClientByAccountNumber(string AccountNumber, vector <sClient>& vClients)
+	//{
+	//	sClient Client;
+	//	char Answer = 'n';
+
+	//	if (FindClientByAccountNumber(AccountNumber, vClients, Client))
+	//	{
+	//		PrintClientCard(Client);
+
+	//		cout << "\n\nAre you sure you want to update this client ? y/n ?";
+	//		cin >> Answer;
+	//		if (Answer == 'y' || Answer == 'Y')
+	//		{
+	//			MarkClientForUpdateByAccountNumber(AccountNumber, vClients);
+	//			SaveClientsDataToFile_Update(ClientsFileName, vClients);
+
+	//			vClients = LoadClientsDataFromFile(ClientsFileName);
+
+	//			cout << "\n\nClient Updated Successfully.\n";
+	//			return true;
+	//		}
+	//	}
+	//	else
+	//	{
+	//		cout << "\nClient With Account Number (" << AccountNumber << ") is Not Fount\n";
+	//		return false;
+	//	}
+	//}
+}
+
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+
+
+#pragma once
+#include<iostream>
+using namespace std;
+
+namespace SumLib
+{
+	double MySum(double a, double b)
+	{
+		return (a + b);
+	}
+
+	int MySum(int a, int b)
+	{
+		return (a + b);
+	}
+
+	int MySum(int a, int b, int c)
+	{
+		return (a + b + c);
+	}
+
+	int MySum(int a, int b, int c, int d)
+	{
+		return (a + b + c + d);
+	}
+
+	//I'm not sure! 
+	//void TransposeMatrix(int arr[3][3], int arrTr[3][3], short Rows, short Cols)
+	//{
+	//	for (short i = 0; i < Rows; i++)
+	//	{
+	//		for (short j = 0; j < Cols; j++)
+	//		{
+	//			arrTr[i][j] = arr[j][i];
+	//		}
+	//		cout << endl;
+	//	}
+	//}
+
+	///////////////////////////////////////
+	///////////////////////////////////////
+	///////////C7:Problem 48///////////////
+	///////////////////////////////////////
+	///////////////////////////////////////
+
+	//vector <sClient> LoadClientsDataFromFile(string FileName)
+	//{
+	//	vector <sClient> vClients;
+
+	//	fstream MyFile;
+	//	MyFile.open(FileName, ios::in); //read Mode
+
+	//	if (MyFile.is_open())
+	//	{
+	//		string Line;
+	//		sClient Client;
+
+	//		while (getline(MyFile, Line))
+	//		{
+	//			Client = ConvertLineToRecord(Line);
+
+	//			vClients.push_back(Client);
+	//		}
+	//		MyFile.close();
+	//	}
+	//	return vClients;
+	//}
+
+	//void PrintClientRecord(sClient Client)
+	//{
+	//	cout << "| " << setw(15) << left << Client.AccNumber;
+	//	cout << "| " << setw(10) << left << Client.PinCode;
+	//	cout << "| " << setw(40) << left << Client.Name;
+	//	cout << "| " << setw(12) << left << Client.Phone;
+	//	cout << "| " << setw(12) << left << Client.AccBalance;
+	//}
+
+	//void PrintAllClientsData(vector <sClient> vClients)
+	//{
+	//	cout << "\n\t\t\t\t\tClient List (" << vClients.size() << ") Client (s).";
+	//	cout << "\n_______________________________________________________";
+	//	cout << "_________________________________________\n" << endl;
+
+	//	cout << "| " << left << setw(15) << "Account Number";
+	//	cout << "| " << left << setw(10) << "Pin Code";
+	//	cout << "| " << left << setw(40) << "Client Name";
+	//	cout << "| " << left << setw(12) << "Phone";
+	//	cout << "| " << left << setw(12) << "Balance";
+	//	cout << "\n_______________________________________________________";
+	//	cout << "_________________________________________\n" << endl;
+
+	//	for (sClient Client : vClients)
+	//	{
+	//		PrintClientRecord(Client);
+	//		cout << endl;
+	//	}
+
+	//	cout << "\n_______________________________________________________";
+	//	cout << "_________________________________________\n" << endl;
+	//}
+
+}
+
+
