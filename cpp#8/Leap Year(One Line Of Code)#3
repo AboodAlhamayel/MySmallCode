@@ -1,0 +1,72 @@
+#include<iostream>
+#include<string>
+#include"Course8.h";
+
+using namespace std;
+
+bool IsLeapYear(int Year)
+{
+	return ((Year % 400) == 0 || (Year % 4) == 0 && Year % 100 != 0);
+}
+
+int ReadYear()
+{
+	short Number;
+	cout << "Enter a number ? ";
+	cin >> Number;
+
+	return Number;
+}
+
+int main()
+{
+	short Year = ReadYear();
+
+	if (Course8::IsLeapYear(Year))
+		cout << "\nyes , year [" << Year << "] is a leap year!\n";
+	else
+		cout << "\nNO, year [" << Year << "] is NOT a leap year!\n";
+
+	system("pause>0");
+	return 0;
+}
+
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+
+#include<iostream>
+#include<string>
+#include"Course8.h";
+
+using namespace std;
+
+bool IsLeapYear(int Year)
+{
+	return ((Year % 400) == 0 || (Year % 4) == 0);
+}
+
+int ReadYear()
+{
+	short Number;
+	cout << "Enter a number ? ";
+	cin >> Number;
+
+	return Number;
+}
+
+int main()
+{
+	short Year = ReadYear();
+
+	if (Course8::IsLeapYear(Year))
+		cout << "\nyes , year [" << Year << "] is a leap year!\n";
+	else
+		cout << "\nNO, year [" << Year << "] is NOT a leap year!\n";
+
+	system("pause>0");
+	return 0;
+}
+
