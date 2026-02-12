@@ -1,2 +1,80 @@
-..
-.
+
+
+
+
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+
+#include<iostream>
+#include<string>
+#include"Course8.h";
+
+using namespace std;
+
+int ReadYear()
+{
+	short Year;
+	cout << "Please enter a Year ? ";
+	cin >> Year;
+
+	return Year;
+}
+
+short ReadMonth()
+{
+	short Month;
+	cout << "Please enter a Month ? ";
+	cin >> Month;
+
+	return Month;
+}
+
+short ReadDay()
+{
+	short Day;
+	cout << "Please enter a Day ? ";
+	cin >> Day;
+
+	return Day;
+}
+
+short GregorianCalender(short Day, short y, short m)
+{
+	short d = ((Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7);
+	return d;
+}
+
+void DayOrder(short Day, short Month, short Year)
+{
+	short a = (14 - Month) / 12;
+	short y = Year - a;
+	short m = Month + 12 * a - 2;
+	short d = GregorianCalender(Day, y, m);
+
+	string Days[] = { "Sun" , "Mon", "Tue","Wed","Thu","Fri","Sat" };
+
+	cout << "Day Order : " << d << endl;
+	cout << "Day Name  : " << Days[d] << endl;
+}
+
+void KnowTheDay()
+{
+	short Year = ReadYear();
+	short Month = ReadMonth();
+	short Day = ReadDay();
+
+	cout << "Date : " << Day << "/" << Month << "/" << Year << endl;
+
+	DayOrder(Day, Month, Year);
+}
+
+int main()
+{
+	KnowTheDay();
+
+	system("pause>0");
+	return 0;
+}
