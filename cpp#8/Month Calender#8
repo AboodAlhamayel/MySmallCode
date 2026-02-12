@@ -1,0 +1,111 @@
+
+
+
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+
+#include<iostream>
+#include<string>
+#include <iomanip>
+#include"Course8.h";
+
+using namespace std;
+
+int ReadYear()
+{
+	short Year;
+	cout << "Please enter a Year ? ";
+	cin >> Year;
+
+	return Year;
+}
+
+short ReadMonth()
+{
+	short Month;
+	cout << "Please enter a Month ? ";
+	cin >> Month;
+
+	return Month;
+}
+
+bool IsLeapYear(int Year)
+{
+	return ((Year % 400) == 0 || (Year % 4) == 0);
+}
+
+short NumberOfDaysInMonth(short Year, short Month)
+{
+	if (Month < 1 || Month > 12)
+		return 0;
+
+	int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+}
+
+string NameOfMonth(short Month)
+{
+	string arrNameOfMonth[] = { "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec" };
+
+	return arrNameOfMonth[Month - 1];
+}
+
+short DayOfWeekOrder(short Day, short Month, short Year)
+{
+	short a, y, m;
+	a = (14 - Month) / 12;
+	y = Year - a;
+	m = Month + (12 * a) - 2;
+
+	return (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+}
+
+string DayShortName(short DayOfWeekOrder)
+{
+	string arrDayNames[] = { "Sun","Mon","The","Wed","Thu","Fri","Sat" };
+
+	return arrDayNames[DayOfWeekOrder];
+}
+
+void PrintCalender(short Month, short Year)
+{
+
+	cout << "_________" << NameOfMonth(Month) << "_________\n";
+
+	for (short i = 0; i < 7; i++)
+	{
+		cout << setw(4) << DayShortName(i);
+	}
+	cout << endl;
+
+	short DaysInMonth = NumberOfDaysInMonth(Year, Month);
+	short firstDay = DayOfWeekOrder(1, Month, Year);
+
+	for (short i = 0; i < firstDay; i++)
+	{
+		cout << "    ";
+	}
+
+	for (short day = 1; day <= DaysInMonth; day++)
+	{
+		cout << setw(4) << day;
+
+		if ((firstDay + day) % 7 == 0)
+			cout << endl;
+	}
+	cout << endl;
+}
+
+int main()
+{
+	short Year = ReadYear();
+	short Month = ReadMonth();
+
+	PrintCalender(Month, Year);
+
+	system("pause>0");
+	return 0;
+}
