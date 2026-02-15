@@ -1,0 +1,131 @@
+#include<iostream>
+#include<string>
+#include <iomanip>
+#include"Course8.h";
+
+using namespace std;
+
+struct sDate {
+	short Day;
+	short Month;
+	short Year;
+};
+
+int ReadYear()
+{
+	short Year;
+	cout << "Please enter a Year ? ";
+	cin >> Year;
+
+	return Year;
+}
+
+short ReadMonth()
+{
+	short Month;
+	cout << "Please enter a Month ? ";
+	cin >> Month;
+
+	return Month;
+}
+
+short ReadDay()
+{
+	short Day;
+	cout << "Please enter a Day ? ";
+	cin >> Day;
+
+	return Day;
+}
+
+int ReadDaysToAdd()
+{
+	int Days;
+	cout << "How Many Days To Add ? ";
+	cin >> Days;
+
+	return Days;
+}
+
+bool IsLeapYear(int Year)
+{
+	return ((Year % 400) == 0 || (Year % 4) == 0);
+}
+
+short NumberOfDaysInMonth(short Month, short Year)
+{
+	if (Month < 1 || Month > 12)
+		return 0;
+
+	int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+}
+
+int NumberOfDaysFromTheBeginingOfTheYear(short Day, short Month, short Year)
+{
+	int TotalDays = 0;
+
+	for (short i = 1; i <= Month - 1; i++)
+	{
+		TotalDays += NumberOfDaysInMonth(i, Year);
+	}
+
+	TotalDays += Day;
+
+	return TotalDays;
+}
+
+sDate ReadFullDate()
+{
+	sDate Date;
+	Date.Day = ReadDay();
+	Date.Month = ReadMonth();
+	Date.Year = ReadYear();
+
+	return Date;
+}
+
+sDate DateAddDays(short Days, sDate Date)
+{
+	short RemainingDays = Days + NumberOfDaysFromTheBeginingOfTheYear(Date.Day, Date.Month, Date.Year);
+	short MonthDays = 0;
+
+	Date.Month = 1;
+
+	while (true)
+	{
+		MonthDays = NumberOfDaysInMonth(Date.Month, Date.Year);
+
+		if (RemainingDays > MonthDays)
+		{
+			RemainingDays -= MonthDays;
+			Date.Month++;
+
+			if (Date.Month > 12)
+			{
+				Date.Month = 1;
+				Date.Year++;
+			}
+		}
+		else
+		{
+			Date.Day = RemainingDays;
+			break;
+		}
+	}
+	return Date;
+}
+
+int main()
+{
+	sDate Date = ReadFullDate();
+	int Days = ReadDaysToAdd();
+
+	Date = DateAddDays(Days, Date);
+
+	cout << "\nDate after adding [" << Days << "] days is : ";
+	cout << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
+
+	system("pause>0");
+	return 0;
+}
