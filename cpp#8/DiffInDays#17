@@ -101,7 +101,7 @@ sDate IncreaseDateByOneDay(sDate Date)
 	return Date;
 }
 
-int GetDifferenceInDays(sDate Date1, sDate Date2, bool IncludeEndDay = true)
+int GetDifferenceInDays(sDate Date1, sDate Date2, bool IncludeEndDay = false)
 {
 	int Days = 0;
 	while (IsDate1BeforeDate2(Date1, Date2))
