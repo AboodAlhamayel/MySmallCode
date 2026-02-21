@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class clsPerson {
+
+public:
+    string FirstName;
+    string LastName;
+
+    string FullName()
+    {
+        return FirstName + " " + LastName;
+    }
+};
+
+int main()
+{
+    clsPerson Person;
+    Person.FirstName = "Mohammed";
+    Person.LastName = "Ali";
+
+    cout << "Full Name : " << Person.FullName() << endl;
+}
