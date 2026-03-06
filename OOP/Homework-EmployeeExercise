@@ -1,0 +1,152 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsEmployee
+{
+private:
+    int _ID;
+    string _FirstName;
+    string _LastName;
+    string _Email;
+    string _Phone;
+    string _Title;
+    float _Salary;
+    string _Department;
+
+public:
+
+    clsEmployee(int ID, string FirstName, string LastName, string Email, string Phone, string Title, float Salary, string Department)
+    {
+        _ID = ID;
+        _FirstName = FirstName;
+        _LastName = LastName;
+        _Email = Email;
+        _Phone = Phone;
+        _Title = Title;
+        _Salary = Salary;
+        _Department = Department;
+    }
+
+    int getID()
+    {
+        return _ID;
+    }
+
+    void setFirstName(string FirstName)
+    {
+        _FirstName = FirstName;
+    }
+
+    string getFirstName()
+    {
+        return _FirstName;
+    }
+
+    void setLastName(string LastName)
+    {
+        _LastName = LastName;
+    }
+
+    string getLastName()
+    {
+        return _LastName;
+    }
+
+    void setEmail(string Email)
+    {
+        _Email = Email;
+    }
+
+    string getEmail()
+    {
+        return _Email;
+    }
+
+    void setPhone(string Phone)
+    {
+        _Phone = Phone;
+    }
+
+    string getPhone()
+    {
+        return _Phone;
+    }
+
+    void setTitle(string Title)
+    {
+        _Title = Title;
+    }
+
+    string getTitle()
+    {
+        return _Title;
+    }
+
+    void setSalary(float Salary)
+    {
+        _Salary = Salary;
+    }
+
+    float getSalary()
+    {
+        return _Salary;
+    }
+
+    void setDepartment(int Department)
+    {
+        _Department = Department;
+    }
+
+    string getDepartment()
+    {
+        return _Department;
+    }
+
+    string FullName()
+    {
+        return _FirstName + " " + _LastName;
+    }
+
+    void Print()
+    {
+        cout << "\nInfo : ";
+        cout << "\n_____________________\n";
+        cout << "ID           : " << _ID << endl;
+        cout << "First Name   : " << _FirstName << endl;
+        cout << "Last Name    : " << _LastName << endl;
+        cout << "Full Name    : " << FullName() << endl;
+        cout << "Email        : " << _Email << endl;
+        cout << "Phone        : " << _Phone << endl;
+        cout << "Title        : " << _Title << endl;
+        cout << "Salary       : " << _Salary << endl;
+        cout << "Department   : " << _Department << endl;
+        cout << "_____________________\n";
+    }
+
+    void SendEmail(string Subject, string Body)
+    {
+        cout << "\nThe following message sent successfully to email : " << _Email;
+        cout << "\nSubject : " << Subject;
+        cout << "\nBody : " << Body << endl;
+    }
+
+    void SendSMS(string TextMessage)
+    {
+        cout << "\nThe following SMS sent successfully to phone : " << _Phone;
+        cout << "\n" << TextMessage << endl;
+    }
+
+};
+
+int main()
+{
+    clsEmployee Employee1(10, "Mohammed", "Ali", "my@example.com", "005898560", "This is title", 5000, 20);
+    Employee1.Print();
+
+    Employee1.SendEmail("Hi", "This is Email");
+    Employee1.SendSMS("This is SMS");
+
+    system("pause>0");
+    return 0;
+}
