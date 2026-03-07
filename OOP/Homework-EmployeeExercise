@@ -93,7 +93,7 @@ public:
         return _Salary;
     }
 
-    void setDepartment(int Department)
+    void setDepartment(string Department)
     {
         _Department = Department;
     }
@@ -141,7 +141,7 @@ public:
 
 int main()
 {
-    clsEmployee Employee1(10, "Mohammed", "Ali", "my@example.com", "005898560", "This is title", 5000, 20);
+    clsEmployee Employee1(10, "Mohammed", "Ali", "my@example.com", "005898560", "This is title", 5000, "A20");
     Employee1.Print();
 
     Employee1.SendEmail("Hi", "This is Email");
