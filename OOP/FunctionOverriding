@@ -160,6 +160,17 @@ public:
         cout << "Salary       : " << _Salary << endl;
 
         cout << "_____________________\n";
+
+        /*
+        
+        OR:
+
+        clsPerson::Print();
+        cout << "Title        : " << _Title << endl;
+        cout << "Department   : " << _Department << endl;
+        cout << "Salary       : " << _Salary << endl;
+
+        cout << "_____________________\n";*/
     }
 
 };
