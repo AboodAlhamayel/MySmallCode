@@ -1,0 +1,102 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsA
+{
+private:
+    int _Var1 = 11;
+    int _Fun1()
+    {
+        return 1;
+    }
+
+protected:
+    int Var2 = 22;
+    int Fun2()
+    {
+        return 2;
+    }
+
+public:
+    int Var3 = 33;
+    int Fun3()
+    {
+        return 3;
+    }
+};
+
+class clsB : public clsA
+{
+public:
+    int Fun4()
+    {
+        /*
+        clsA::Fun2; / clsA::Var2; / clsA::Fun3; / clsA::Var3;
+        because the Inheritance Visibility Modes is Public
+        */
+        return 4;
+    }
+};
+
+class clsC : protected clsA
+{
+public:
+    int Fun5()
+    {
+        /*
+        clsA::Fun2; / clsA::Var2; / clsA::Fun3; / clsA::Var3;
+        because the Inheritance Visibility Modes is Public
+        */
+        return 5;
+    }
+};
+
+class clsD : private clsA
+{
+public:
+    int Fun6()
+    {
+        return 6;
+    }
+};
+
+class clsF : public clsB
+{
+public:
+    int Fun7()
+    {
+        /*
+        clsB::Fun2; clsB::Var2; clsB::Fun3; clsB::Var3; clsB::Fun4;
+        clsB::clsA::Fun2; clsB::clsA::Fun3; clsB::clsA::Var2; clsB::clsA::Var3;
+        */
+        return 7;
+    }
+};
+
+int main()
+{
+    clsA A1;
+    cout << A1.Var3 << endl;
+    cout << A1.Fun3() << endl;
+
+    clsB B1;
+    cout << B1.Var3 << endl;
+    cout << B1.Fun3() << endl;
+    cout << B1.Fun4() << endl;
+
+    clsC C1;
+    cout << C1.Fun5() << endl;
+
+    clsD D1;
+    cout << D1.Fun6() << endl;
+
+    clsF F1;
+    cout << F1.Var3 << endl;
+    cout << F1.Fun3() << endl;
+    cout << F1.Fun4() << endl;
+    cout << F1.Fun7() << endl;
+
+    system("pause>0");
+    return 0;
+}
