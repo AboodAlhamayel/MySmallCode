@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsA
+{
+private:
+    int _Var1;
+    void _Fun1()
+    {
+        cout << "Function 1" << endl;
+    }
+
+protected:
+    int Var2 = 2;
+    void Fun2()
+    {
+        cout << "Function 2" << endl;
+    }
+
+public:
+    int Var3 = 3;
+    void Fun3()
+    {
+        cout << "Function 3" << endl;
+    }
+};
+
+class clsB : public clsA
+{
+public:
+    void B1()
+    {
+        //From protected clsA
+        cout << clsA::Var2;
+        cout << endl;
+    }
+    void B2()
+    {
+        //From protected clsA
+        clsA::Fun2();
+        cout << endl;
+    }
+    void B3()
+    {
+        //From protected clsA
+        cout << clsA::Var3;
+        cout << endl;
+    }
+    void B4()
+    {
+        //From protected clsA
+        clsA::Fun3();
+        cout << endl;
+    }
+
+    void Fun3()
+    {
+        cout << "This Fun 3 in clsB" << endl;
+    }
+};
+
+int main()
+{
+    clsA A;
+    A.Var3 = 10;
+    A.Fun3();
+
+    clsB B;
+    B.B1();
+    B.B2();
+    B.B3();
+    B.B4();
+    B.Var3 = 20;         //From Public clsA
+    B.Fun3();            //From Public clsA
+
+    system("pause>0");
+    return 0;
+}
