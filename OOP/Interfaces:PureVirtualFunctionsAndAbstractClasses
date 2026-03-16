@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+//Abstract class / Interface / Contract.
+class clsMobil
+{
+    virtual void Dial(string PhoneNumber) = 0;
+    virtual void SendSMS(string PhoneNumber, string Text) = 0;
+    virtual void TakePicture() = 0;
+
+    /*
+        pure virtual function -> found interface without body
+        A pure virtual function doesn't have the function body and it must end with = 0.
+        You can't have an object of abstract class.
+
+    */
+};
+
+class clsiPhone : public clsMobil
+{
+public:
+
+    void Dial(string PhoneNumber)
+    {
+
+    };
+
+    void SendSMS(string PhoneNumber, string Text)
+    {
+
+    };
+
+    void TakePicture()
+    {
+
+    };
+};
+
+class clsSamsungNote10 : public clsMobil
+{
+public:
+
+    void Dial(string PhoneNumber)
+    {
+
+    };
+
+    void SendSMS(string PhoneNumber, string Text)
+    {
+
+    };
+
+    void TakePicture()
+    {
+
+    };
+
+    void MyOwnMethod()
+    {
+
+    };
+    //Derived Classes from abstract class can have extra methods other than the methods in the abstract class.
+};
+
+int main()
+{   
+    clsiPhone iphone1;
+
+
+    system("pause>0");
+    return 0;
+}
