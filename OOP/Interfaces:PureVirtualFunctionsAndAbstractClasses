@@ -65,6 +65,7 @@ public:
 int main()
 {   
     clsiPhone iphone1;
+    clsSamsungNote10 Note10;
 
 
     system("pause>0");
