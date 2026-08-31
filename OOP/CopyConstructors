@@ -20,6 +20,7 @@ public:
     }
 
     //Copy Constructor It is not necessary to write it.
+    //Whether you write it or not, it doesn't matter, because the compiler generates it if you omit it.
     clsAddress(clsAddress& old_obj)
     {
         _AddressLine1 = old_obj.GetAddressLine1();
