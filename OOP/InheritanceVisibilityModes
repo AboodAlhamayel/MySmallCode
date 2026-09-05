@@ -97,11 +97,11 @@ int main()
     cout << F1.Fun4() << endl;
     cout << F1.Fun7() << endl;
 
-//NOTE
-//PROTECTED inheritance allows future derived classes to continue access.
-//PRIVATE inheritance blocks future inheritance access.
-
-
     system("pause>0");
     return 0;
 }
+
+
+//NOTE
+//PROTECTED inheritance allows future derived classes to continue access.
+//PRIVATE inheritance blocks future inheritance access.
